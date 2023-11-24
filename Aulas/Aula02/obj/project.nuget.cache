@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "BMWwH0gE4KQJEu5Ikritc9zXghJr0L79g1yXHlVLDSC7Fi8osKpmZ01sfmy20i8e5rRGbDXv8rMriL6GNpa/2w==",
+  "dgSpecHash": "88z122i3f7Iz2+VsZkxE4/wX1MW9heSs0SYdSiIlgW8FR+WpUWE2ZTdVvxiz9eWXB6+CbIkkhKpXWT2k/Y3Lgw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Emerson\\Documents\\YoutubeCfbCursos\\VisualStudioCode\\Aulas\\Aula02\\Aula02.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Emerson\\Documents\\tr-csharp\\Aulas\\Aula02\\Aula02.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Emerson\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.14\\microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Emerson\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.14\\microsoft.windowsdesktop.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Emerson\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.14\\microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Emerson\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.14\\microsoft.netcore.app.host.win-x64.7.0.14.nupkg.sha512"
+  ],
   "logs": []
 }

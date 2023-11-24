@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Emerson\\Documents\\YoutubeCfbCursos\\VisualStudioCode\\Aulas\\Aula02\\Aula02.csproj": {}
+    "C:\\Users\\Emerson\\Documents\\tr-csharp\\Aulas\\Aula02\\Aula02.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Emerson\\Documents\\YoutubeCfbCursos\\VisualStudioCode\\Aulas\\Aula02\\Aula02.csproj": {
+    "C:\\Users\\Emerson\\Documents\\tr-csharp\\Aulas\\Aula02\\Aula02.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Emerson\\Documents\\YoutubeCfbCursos\\VisualStudioCode\\Aulas\\Aula02\\Aula02.csproj",
+        "projectUniqueName": "C:\\Users\\Emerson\\Documents\\tr-csharp\\Aulas\\Aula02\\Aula02.csproj",
         "projectName": "Aula02",
-        "projectPath": "c:\\Users\\Emerson\\Documents\\YoutubeCfbCursos\\VisualStudioCode\\Aulas\\Aula02\\Aula02.csproj",
+        "projectPath": "C:\\Users\\Emerson\\Documents\\tr-csharp\\Aulas\\Aula02\\Aula02.csproj",
         "packagesPath": "C:\\Users\\Emerson\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Emerson\\Documents\\YoutubeCfbCursos\\VisualStudioCode\\Aulas\\Aula02\\obj\\",
+        "outputPath": "C:\\Users\\Emerson\\Documents\\tr-csharp\\Aulas\\Aula02\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -55,12 +55,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
