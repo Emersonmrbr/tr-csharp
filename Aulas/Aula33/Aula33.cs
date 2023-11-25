@@ -54,6 +54,7 @@ class Aula33
     j1.setEnergia(-30);
     j1.setEnergia(-30);
     j1.setEnergia(-30);
+    j1.setEnergia(-30);
     Console.WriteLine("Nome...: {0}", j1.getNome());
     Console.WriteLine("Energia: {0}", j1.getEnergia());
   }
