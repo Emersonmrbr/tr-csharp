@@ -2,14 +2,14 @@ using System;
 
 static public class Jogador
 {
-  public int energia;
-  public bool vivo;
-  public string nome;
-  void public Jogador(string n)
+  static public int energia;
+  static public bool vivo;
+  static public string nome;
+  static public void iniciar(string n)
   {
     energia = 100;
     vivo = true;
-    nome = "n";
+    nome = n;
   }
 
 
@@ -20,18 +20,35 @@ static public class Jogador
     Console.WriteLine("Estado jogador:.. {0}\n", vivo);
   }
 }
-class Aula30
+
+class Inimigo
+{
+  static public bool alerta;
+  public string nome;
+  public Inimigo(string n)
+  {
+    alerta = false;
+    nome = n;
+  }
+  public void info()
+  {
+    Console.WriteLine(nome);
+    Console.WriteLine(alerta);
+    Console.WriteLine("---------------------");
+  }
+}
+class Aula31
 {
   static void Main()
   {
-    Jogador j1 = new Jogador();
-    Jogador j2 = new Jogador("Emerson");
-    Jogador j3 = new Jogador("Suellen", 100);
-    Jogador j4 = new Jogador("Sofia", 0, true);
-
-    j1.info();
-    j2.info();
-    j3.info();
-    j4.info();
+    Jogador.iniciar("Emerson");
+    Jogador.info();
+    Inimigo i1 = new Inimigo("Mateus");
+    Inimigo i2 = new Inimigo("Carlos");
+    Inimigo i3 = new Inimigo("Paulo");
+    Inimigo.alerta = true;
+    i1.info();
+    i2.info();
+    i3.info();
   }
 }
