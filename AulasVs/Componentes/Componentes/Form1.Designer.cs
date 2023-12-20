@@ -95,7 +95,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(283, 368);
+      this.ClientSize = new System.Drawing.Size(284, 361);
       this.Controls.Add(this.Btn_Mostrar);
       this.Controls.Add(this.Btn_Limpar);
       this.Controls.Add(this.Tb_listaVeiculos);

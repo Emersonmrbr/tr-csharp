@@ -33,17 +33,17 @@
       // 
       // Tb_ListaVeiculos
       // 
-      this.Tb_ListaVeiculos.Location = new System.Drawing.Point(12, 12);
+      this.Tb_ListaVeiculos.Location = new System.Drawing.Point(12, 9);
       this.Tb_ListaVeiculos.Multiline = true;
       this.Tb_ListaVeiculos.Name = "Tb_ListaVeiculos";
-      this.Tb_ListaVeiculos.Size = new System.Drawing.Size(776, 426);
+      this.Tb_ListaVeiculos.Size = new System.Drawing.Size(260, 340);
       this.Tb_ListaVeiculos.TabIndex = 0;
       // 
       // F_Veiculos
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 450);
+      this.ClientSize = new System.Drawing.Size(284, 361);
       this.Controls.Add(this.Tb_ListaVeiculos);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
