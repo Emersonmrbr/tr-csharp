@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Aula60
 {
-    public partial class Janela1 : Form
+    public partial class f_Principal : Form
     {
-        public Janela1()
+        public f_Principal()
         {
             InitializeComponent();
         }
+
+        private void btn_Texto_Click(object sender, EventArgs e)
+        {
+            lb_Texto.Text = tb_Texto.Text;
+        }
+
     }
 }

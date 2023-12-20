@@ -16,7 +16,7 @@ namespace Aula60
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Janela1());
+            Application.Run(new f_Principal());
         }
     }
 }

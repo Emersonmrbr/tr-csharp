@@ -2,9 +2,9 @@ C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\bin\Debug\Aula60.exe.conf
 C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\bin\Debug\Aula60.exe
 C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\bin\Debug\Aula60.pdb
 C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\obj\Debug\Aula60.csproj.AssemblyReference.cache
-C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\obj\Debug\Aula60.Janela1.resources
 C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\obj\Debug\Aula60.Properties.Resources.resources
 C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\obj\Debug\Aula60.csproj.GenerateResource.cache
 C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\obj\Debug\Aula60.csproj.CoreCompileInputs.cache
 C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\obj\Debug\Aula60.exe
 C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\obj\Debug\Aula60.pdb
+C:\Users\Emerson\source\repos\tr-csharp\AulasVs\Aula60\obj\Debug\Aula60.f_Principal.resources
