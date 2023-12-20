@@ -37,5 +37,11 @@ namespace Componentes
       Tb_Veiculo.Clear();
       Tb_Veiculo.Focus();
     }
+
+    private void Btn_Mostrar_Click(object sender, EventArgs e)
+    {
+      F_Veiculos f_Veiculos = new F_Veiculos(Tb_listaVeiculos.Text);
+      f_Veiculos.ShowDialog();
+    }
   }
 }
