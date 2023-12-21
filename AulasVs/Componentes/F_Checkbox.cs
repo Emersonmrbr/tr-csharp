@@ -36,5 +36,11 @@ namespace Componentes
 
       MessageBox.Show(txt);
     }
+
+    private void btn_abrirFormFilho_Click(object sender, EventArgs e)
+    {
+      F_FilhoCheckBox f_filhoCheckBox = new F_FilhoCheckBox();
+      f_filhoCheckBox.ShowDialog();
+    }
   }
 }

@@ -68,6 +68,12 @@
     <Compile Include="F_CheckedListBox.Designer.cs">
       <DependentUpon>F_CheckedListBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_FilhoCheckBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_FilhoCheckBox.Designer.cs">
+      <DependentUpon>F_FilhoCheckBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_Veiculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F_CheckedListBox.resx">
       <DependentUpon>F_CheckedListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_FilhoCheckBox.resx">
+      <DependentUpon>F_FilhoCheckBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Veiculos.resx">
       <DependentUpon>F_Veiculos.cs</DependentUpon>

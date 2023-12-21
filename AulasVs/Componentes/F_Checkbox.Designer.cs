@@ -33,6 +33,7 @@
       this.cb_navio = new System.Windows.Forms.CheckBox();
       this.cb_onibus = new System.Windows.Forms.CheckBox();
       this.btn_transportesMarcados = new System.Windows.Forms.Button();
+      this.btn_abrirFormFilho = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // cb_carro
@@ -116,11 +117,22 @@
       this.btn_transportesMarcados.UseVisualStyleBackColor = true;
       this.btn_transportesMarcados.Click += new System.EventHandler(this.btn_transportesMarcados_Click);
       // 
+      // btn_abrirFormFilho
+      // 
+      this.btn_abrirFormFilho.Location = new System.Drawing.Point(106, 56);
+      this.btn_abrirFormFilho.Name = "btn_abrirFormFilho";
+      this.btn_abrirFormFilho.Size = new System.Drawing.Size(166, 23);
+      this.btn_abrirFormFilho.TabIndex = 5;
+      this.btn_abrirFormFilho.Text = "Abrir form filho";
+      this.btn_abrirFormFilho.UseVisualStyleBackColor = true;
+      this.btn_abrirFormFilho.Click += new System.EventHandler(this.btn_abrirFormFilho_Click);
+      // 
       // F_Checkbox
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(284, 436);
+      this.Controls.Add(this.btn_abrirFormFilho);
       this.Controls.Add(this.btn_transportesMarcados);
       this.Controls.Add(this.cb_onibus);
       this.Controls.Add(this.cb_navio);
@@ -137,11 +149,11 @@
     }
 
     #endregion
-
-    private System.Windows.Forms.CheckBox cb_carro;
-    private System.Windows.Forms.CheckBox cb_aviao;
-    private System.Windows.Forms.CheckBox cb_navio;
-    private System.Windows.Forms.CheckBox cb_onibus;
     private System.Windows.Forms.Button btn_transportesMarcados;
+    public System.Windows.Forms.CheckBox cb_carro;
+    public System.Windows.Forms.CheckBox cb_aviao;
+    public System.Windows.Forms.CheckBox cb_navio;
+    public System.Windows.Forms.CheckBox cb_onibus;
+    private System.Windows.Forms.Button btn_abrirFormFilho;
   }
 }
