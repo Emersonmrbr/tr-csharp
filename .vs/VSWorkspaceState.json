@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AulasVs",
+    "\\AulasVs\\Componentes",
+    "\\AulasVs\\Componentes\\Componentes"
   ],
-  "SelectedNode": "\\C:\\Users\\Emerson\\Source\\Repos\\tr-csharp",
   "PreviewInSolutionExplorer": false
 }

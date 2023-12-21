@@ -12,9 +12,11 @@ namespace Componentes
 {
   public partial class F_Principal : Form
   {
+    public int num;
     public F_Principal()
     {
       InitializeComponent();
+      num = 0;
     }
 
     private void Btn_Adicionar_Click(object sender, EventArgs e)
@@ -40,8 +42,13 @@ namespace Componentes
 
     private void Btn_Mostrar_Click(object sender, EventArgs e)
     {
-      F_Veiculos f_Veiculos = new F_Veiculos(Tb_listaVeiculos.Text);
+      F_Veiculos f_Veiculos = new F_Veiculos(Tb_listaVeiculos.Text,this);
       f_Veiculos.ShowDialog();
+    }
+
+    private void Btn_valNum_Click(object sender, EventArgs e)
+    {
+      MessageBox.Show(num.ToString());
     }
   }
 }

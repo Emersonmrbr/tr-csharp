@@ -34,6 +34,7 @@
       this.Tb_listaVeiculos = new System.Windows.Forms.TextBox();
       this.Btn_Limpar = new System.Windows.Forms.Button();
       this.Btn_Mostrar = new System.Windows.Forms.Button();
+      this.Btn_valNum = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // Btn_Adicionar
@@ -91,11 +92,22 @@
       this.Btn_Mostrar.UseVisualStyleBackColor = true;
       this.Btn_Mostrar.Click += new System.EventHandler(this.Btn_Mostrar_Click);
       // 
+      // Btn_valNum
+      // 
+      this.Btn_valNum.Location = new System.Drawing.Point(12, 362);
+      this.Btn_valNum.Name = "Btn_valNum";
+      this.Btn_valNum.Size = new System.Drawing.Size(251, 23);
+      this.Btn_valNum.TabIndex = 6;
+      this.Btn_valNum.Text = "Valor da variável num";
+      this.Btn_valNum.UseVisualStyleBackColor = true;
+      this.Btn_valNum.Click += new System.EventHandler(this.Btn_valNum_Click);
+      // 
       // F_Principal
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(284, 361);
+      this.ClientSize = new System.Drawing.Size(284, 407);
+      this.Controls.Add(this.Btn_valNum);
       this.Controls.Add(this.Btn_Mostrar);
       this.Controls.Add(this.Btn_Limpar);
       this.Controls.Add(this.Tb_listaVeiculos);
@@ -117,9 +129,10 @@
     private System.Windows.Forms.Button Btn_Adicionar;
     private System.Windows.Forms.TextBox Tb_Veiculo;
     private System.Windows.Forms.Label Lb_Titulo;
-    private System.Windows.Forms.TextBox Tb_listaVeiculos;
     private System.Windows.Forms.Button Btn_Limpar;
     private System.Windows.Forms.Button Btn_Mostrar;
+    private System.Windows.Forms.Button Btn_valNum;
+    public System.Windows.Forms.TextBox Tb_listaVeiculos;
   }
 }
 
