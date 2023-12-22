@@ -25,6 +25,14 @@ namespace Componentes
       tb_id.Focus();
     }
 
+    private void obter()
+    {
+      tb_id.Text = lsv_produtos.SelectedItems[0].SubItems[0].Text;
+      tb_produto.Text = lsv_produtos.SelectedItems[0].SubItems[1].Text;
+      tb_quantidade.Text = lsv_produtos.SelectedItems[0].SubItems[2].Text;
+      tb_preco.Text = lsv_produtos.SelectedItems[0].SubItems[3].Text;
+    }
+
     private void btn_adicionar_Click(object sender, EventArgs e)
     {
       if (tb_id.Text == string.Empty)
@@ -68,10 +76,15 @@ namespace Componentes
 
     private void btn_obter_Click(object sender, EventArgs e)
     {
-      tb_id.Text = lsv_produtos.SelectedItems[0].SubItems[0].Text;
-      tb_produto.Text = lsv_produtos.SelectedItems[0].SubItems[1].Text;
-      tb_quantidade.Text = lsv_produtos.SelectedItems[0].SubItems[2].Text;
-      tb_preco.Text = lsv_produtos.SelectedItems[0].SubItems[3].Text;
+      obter();
+    }
+
+    private void lsv_produtos_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      if (lsv_produtos.SelectedItems.Count > 0)
+      {
+        obter();
+      }
     }
   }
 }
