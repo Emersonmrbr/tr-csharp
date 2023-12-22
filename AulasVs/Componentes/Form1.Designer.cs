@@ -40,6 +40,7 @@
       this.checkboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.checkedListBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.comboBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.dataTimePickerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -123,7 +124,8 @@
       this.componentesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.checkboxToolStripMenuItem,
             this.checkedListBoxToolStripMenuItem,
-            this.comboBoxToolStripMenuItem});
+            this.comboBoxToolStripMenuItem,
+            this.dataTimePickerToolStripMenuItem});
       this.componentesToolStripMenuItem.Name = "componentesToolStripMenuItem";
       this.componentesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
       this.componentesToolStripMenuItem.Text = "Componentes";
@@ -148,6 +150,13 @@
       this.comboBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.comboBoxToolStripMenuItem.Text = "ComboBox";
       this.comboBoxToolStripMenuItem.Click += new System.EventHandler(this.comboBoxToolStripMenuItem_Click);
+      // 
+      // dataTimePickerToolStripMenuItem
+      // 
+      this.dataTimePickerToolStripMenuItem.Name = "dataTimePickerToolStripMenuItem";
+      this.dataTimePickerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.dataTimePickerToolStripMenuItem.Text = "DataTimePicker";
+      this.dataTimePickerToolStripMenuItem.Click += new System.EventHandler(this.dataTimePickerToolStripMenuItem_Click);
       // 
       // F_Principal
       // 
@@ -189,6 +198,7 @@
     private System.Windows.Forms.ToolStripMenuItem checkboxToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem checkedListBoxToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem comboBoxToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem dataTimePickerToolStripMenuItem;
   }
 }
 
