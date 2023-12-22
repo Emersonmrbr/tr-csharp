@@ -41,6 +41,7 @@
       this.checkedListBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.comboBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.dataTimePickerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.linkLabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -125,7 +126,8 @@
             this.checkboxToolStripMenuItem,
             this.checkedListBoxToolStripMenuItem,
             this.comboBoxToolStripMenuItem,
-            this.dataTimePickerToolStripMenuItem});
+            this.dataTimePickerToolStripMenuItem,
+            this.linkLabelToolStripMenuItem});
       this.componentesToolStripMenuItem.Name = "componentesToolStripMenuItem";
       this.componentesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
       this.componentesToolStripMenuItem.Text = "Componentes";
@@ -157,6 +159,13 @@
       this.dataTimePickerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.dataTimePickerToolStripMenuItem.Text = "DataTimePicker";
       this.dataTimePickerToolStripMenuItem.Click += new System.EventHandler(this.dataTimePickerToolStripMenuItem_Click);
+      // 
+      // linkLabelToolStripMenuItem
+      // 
+      this.linkLabelToolStripMenuItem.Name = "linkLabelToolStripMenuItem";
+      this.linkLabelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.linkLabelToolStripMenuItem.Text = "Link / Label";
+      this.linkLabelToolStripMenuItem.Click += new System.EventHandler(this.linkLabelToolStripMenuItem_Click);
       // 
       // F_Principal
       // 
@@ -199,6 +208,7 @@
     private System.Windows.Forms.ToolStripMenuItem checkedListBoxToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem comboBoxToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem dataTimePickerToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem linkLabelToolStripMenuItem;
   }
 }
 

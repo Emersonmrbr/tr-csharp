@@ -38,3 +38,4 @@ D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.csproj.CoreCompileInputs.
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_FilhoCheckBox.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_ComboBox.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_DateTimePicker.resources
+D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_LinkLabel.resources

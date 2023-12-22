@@ -43,7 +43,7 @@ namespace Componentes
     private void Btn_Mostrar_Click(object sender, EventArgs e)
     {
       F_Veiculos f_Veiculos = new F_Veiculos(Tb_listaVeiculos.Text,this);
-      f_Veiculos.ShowDialog();
+      _ = f_Veiculos.ShowDialog();
     }
 
     private void Btn_valNum_Click(object sender, EventArgs e)
@@ -54,25 +54,31 @@ namespace Componentes
     private void checkboxToolStripMenuItem_Click(object sender, EventArgs e)
     {
       F_Checkbox f_Checkbox = new F_Checkbox();
-      f_Checkbox.ShowDialog();
+      _ = f_Checkbox.ShowDialog();
     }
 
     private void checkedListBoxToolStripMenuItem_Click(object sender, EventArgs e)
     {
       F_CheckedListBox f_CheckedListBox = new F_CheckedListBox();
-      f_CheckedListBox.ShowDialog();
+      _ = f_CheckedListBox.ShowDialog();
     }
 
     private void comboBoxToolStripMenuItem_Click(object sender, EventArgs e)
     {
       F_ComboBox f_ComboBox = new F_ComboBox();
-      f_ComboBox.ShowDialog();
+      _ = f_ComboBox.ShowDialog();
     }
 
     private void dataTimePickerToolStripMenuItem_Click(object sender, EventArgs e)
     {
       F_DateTimePicker f_DateTimePicker = new F_DateTimePicker();
-      f_DateTimePicker.ShowDialog();
+      _ = f_DateTimePicker.ShowDialog();
+    }
+
+    private void linkLabelToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      F_LinkLabel f_LinkLabel = new F_LinkLabel();
+      _ = f_LinkLabel.ShowDialog();
     }
   }
 }
