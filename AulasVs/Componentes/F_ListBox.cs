@@ -23,6 +23,12 @@ namespace Componentes
       lt_carros.DataSource = carros;
     }
 
+    private void atualizaLista(ListBox lt,List<string> l)
+    {
+      lt.DataSource = null;
+      lt.DataSource = l;
+    }
+
     private void btn_adicionarCarro_Click(object sender, EventArgs e)
     {
       if (tb_inserirCarro.Text == string.Empty)
@@ -32,16 +38,14 @@ namespace Componentes
       else
       {
         carros.Add(tb_inserirCarro.Text);
-        lt_carros.DataSource = null;
-        lt_carros.DataSource = carros;
+        atualizaLista(lt_carros,carros);
       }
     }
 
     private void btn_remover_Click(object sender, EventArgs e)
     {
       carros.RemoveAt(lt_carros.SelectedIndex);
-      lt_carros.DataSource = null;
-      lt_carros.DataSource = carros;
+      atualizaLista(lt_carros, carros);
     }
 
     private void btn_obter_Click(object sender, EventArgs e)
@@ -52,8 +56,7 @@ namespace Componentes
     private void btn_limpar_Click(object sender, EventArgs e)
     {
       carros.Clear();
-      lt_carros.DataSource = null;
-      lt_carros.DataSource = carros;
+      atualizaLista(lt_carros, carros);
     }
   }
 }
