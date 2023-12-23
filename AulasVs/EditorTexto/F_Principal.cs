@@ -20,8 +20,27 @@ namespace EditorTexto
     }
     private void Novo()
     {
-      rht_editor.Clear();
-      rht_editor.Focus();
+      
+      if (rht_editor.Text != string.Empty)
+      {
+        DialogResult msg = MessageBox.Show("Deseja salvar o arquivo", "Salvar", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+        if (msg == DialogResult.OK)
+        {
+          Salvar();
+          rht_editor.Clear();
+          rht_editor.Focus();
+        }
+        else
+        {
+          rht_editor.Clear();
+          rht_editor.Focus();
+        }
+      }
+      else
+      {
+        rht_editor.Clear();
+        rht_editor.Focus();
+      }
     }
 
     private void Salvar()
