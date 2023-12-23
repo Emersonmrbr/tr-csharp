@@ -116,6 +116,12 @@
     <Compile Include="F_MonthCalendar.Designer.cs">
       <DependentUpon>F_MonthCalendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_NumericUpDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_NumericUpDown.Designer.cs">
+      <DependentUpon>F_NumericUpDown.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_Veiculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F_MonthCalendar.resx">
       <DependentUpon>F_MonthCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_NumericUpDown.resx">
+      <DependentUpon>F_NumericUpDown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Veiculos.resx">
       <DependentUpon>F_Veiculos.cs</DependentUpon>

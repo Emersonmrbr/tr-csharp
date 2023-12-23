@@ -53,6 +53,7 @@
       this.tsi_Restaurar = new System.Windows.Forms.ToolStripMenuItem();
       this.tsi_mensagem = new System.Windows.Forms.ToolStripMenuItem();
       this.tsi_fechar = new System.Windows.Forms.ToolStripMenuItem();
+      this.numericUpDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.mus_Menu.SuspendLayout();
       this.ctm_menu.SuspendLayout();
       this.SuspendLayout();
@@ -143,7 +144,8 @@
             this.listBoxToolStripMenuItem,
             this.listViewToolStripMenuItem,
             this.makedTextBoxToolStripMenuItem,
-            this.monthCalendarToolStripMenuItem});
+            this.monthCalendarToolStripMenuItem,
+            this.numericUpDownToolStripMenuItem});
       this.componentesToolStripMenuItem.Name = "componentesToolStripMenuItem";
       this.componentesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
       this.componentesToolStripMenuItem.Text = "Componentes";
@@ -151,63 +153,63 @@
       // checkboxToolStripMenuItem
       // 
       this.checkboxToolStripMenuItem.Name = "checkboxToolStripMenuItem";
-      this.checkboxToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+      this.checkboxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.checkboxToolStripMenuItem.Text = "Checkbox";
       this.checkboxToolStripMenuItem.Click += new System.EventHandler(this.checkboxToolStripMenuItem_Click);
       // 
       // checkedListBoxToolStripMenuItem
       // 
       this.checkedListBoxToolStripMenuItem.Name = "checkedListBoxToolStripMenuItem";
-      this.checkedListBoxToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+      this.checkedListBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.checkedListBoxToolStripMenuItem.Text = "CheckedListBox";
       this.checkedListBoxToolStripMenuItem.Click += new System.EventHandler(this.checkedListBoxToolStripMenuItem_Click);
       // 
       // comboBoxToolStripMenuItem
       // 
       this.comboBoxToolStripMenuItem.Name = "comboBoxToolStripMenuItem";
-      this.comboBoxToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+      this.comboBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.comboBoxToolStripMenuItem.Text = "ComboBox";
       this.comboBoxToolStripMenuItem.Click += new System.EventHandler(this.comboBoxToolStripMenuItem_Click);
       // 
       // dataTimePickerToolStripMenuItem
       // 
       this.dataTimePickerToolStripMenuItem.Name = "dataTimePickerToolStripMenuItem";
-      this.dataTimePickerToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+      this.dataTimePickerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.dataTimePickerToolStripMenuItem.Text = "DataTimePicker";
       this.dataTimePickerToolStripMenuItem.Click += new System.EventHandler(this.dataTimePickerToolStripMenuItem_Click);
       // 
       // linkLabelToolStripMenuItem
       // 
       this.linkLabelToolStripMenuItem.Name = "linkLabelToolStripMenuItem";
-      this.linkLabelToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+      this.linkLabelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.linkLabelToolStripMenuItem.Text = "Link / Label";
       this.linkLabelToolStripMenuItem.Click += new System.EventHandler(this.linkLabelToolStripMenuItem_Click);
       // 
       // listBoxToolStripMenuItem
       // 
       this.listBoxToolStripMenuItem.Name = "listBoxToolStripMenuItem";
-      this.listBoxToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+      this.listBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.listBoxToolStripMenuItem.Text = "ListBox";
       this.listBoxToolStripMenuItem.Click += new System.EventHandler(this.listBoxToolStripMenuItem_Click);
       // 
       // listViewToolStripMenuItem
       // 
       this.listViewToolStripMenuItem.Name = "listViewToolStripMenuItem";
-      this.listViewToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+      this.listViewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.listViewToolStripMenuItem.Text = "ListView";
       this.listViewToolStripMenuItem.Click += new System.EventHandler(this.listViewToolStripMenuItem_Click);
       // 
       // makedTextBoxToolStripMenuItem
       // 
       this.makedTextBoxToolStripMenuItem.Name = "makedTextBoxToolStripMenuItem";
-      this.makedTextBoxToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+      this.makedTextBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.makedTextBoxToolStripMenuItem.Text = "MakedTextBox";
       this.makedTextBoxToolStripMenuItem.Click += new System.EventHandler(this.makedTextBoxToolStripMenuItem_Click);
       // 
       // monthCalendarToolStripMenuItem
       // 
       this.monthCalendarToolStripMenuItem.Name = "monthCalendarToolStripMenuItem";
-      this.monthCalendarToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+      this.monthCalendarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.monthCalendarToolStripMenuItem.Text = "MonthCalendar";
       this.monthCalendarToolStripMenuItem.Click += new System.EventHandler(this.monthCalendarToolStripMenuItem_Click);
       // 
@@ -248,6 +250,13 @@
       this.tsi_fechar.Name = "tsi_fechar";
       this.tsi_fechar.Size = new System.Drawing.Size(108, 22);
       this.tsi_fechar.Text = "Fechar";
+      // 
+      // numericUpDownToolStripMenuItem
+      // 
+      this.numericUpDownToolStripMenuItem.Name = "numericUpDownToolStripMenuItem";
+      this.numericUpDownToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.numericUpDownToolStripMenuItem.Text = "NumericUpDown";
+      this.numericUpDownToolStripMenuItem.Click += new System.EventHandler(this.numericUpDownToolStripMenuItem_Click);
       // 
       // F_Principal
       // 
@@ -301,6 +310,7 @@
     private System.Windows.Forms.ToolStripMenuItem tsi_Restaurar;
     private System.Windows.Forms.ToolStripMenuItem tsi_mensagem;
     private System.Windows.Forms.ToolStripMenuItem tsi_fechar;
+    private System.Windows.Forms.ToolStripMenuItem numericUpDownToolStripMenuItem;
   }
 }
 
