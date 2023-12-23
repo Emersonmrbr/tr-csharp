@@ -45,6 +45,7 @@
       this.listBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.listViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.makedTextBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.monthCalendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -133,7 +134,8 @@
             this.linkLabelToolStripMenuItem,
             this.listBoxToolStripMenuItem,
             this.listViewToolStripMenuItem,
-            this.makedTextBoxToolStripMenuItem});
+            this.makedTextBoxToolStripMenuItem,
+            this.monthCalendarToolStripMenuItem});
       this.componentesToolStripMenuItem.Name = "componentesToolStripMenuItem";
       this.componentesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
       this.componentesToolStripMenuItem.Text = "Componentes";
@@ -194,6 +196,13 @@
       this.makedTextBoxToolStripMenuItem.Text = "MakedTextBox";
       this.makedTextBoxToolStripMenuItem.Click += new System.EventHandler(this.makedTextBoxToolStripMenuItem_Click);
       // 
+      // monthCalendarToolStripMenuItem
+      // 
+      this.monthCalendarToolStripMenuItem.Name = "monthCalendarToolStripMenuItem";
+      this.monthCalendarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.monthCalendarToolStripMenuItem.Text = "MonthCalendar";
+      this.monthCalendarToolStripMenuItem.Click += new System.EventHandler(this.monthCalendarToolStripMenuItem_Click);
+      // 
       // F_Principal
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,6 +248,7 @@
     private System.Windows.Forms.ToolStripMenuItem listBoxToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem listViewToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem makedTextBoxToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem monthCalendarToolStripMenuItem;
   }
 }
 

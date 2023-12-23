@@ -25,7 +25,7 @@ namespace Componentes
 
     private void ckb_mostrar_CheckedChanged(object sender, EventArgs e)
     {
-        mtb_senha.PasswordChar = !ckb_mostrar.Checked ? '#' : '\0';
+      mtb_senha.PasswordChar = !ckb_mostrar.Checked ? '#' : '\0';
     }
   }
 }
