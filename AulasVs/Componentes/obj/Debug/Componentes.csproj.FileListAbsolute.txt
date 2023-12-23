@@ -45,3 +45,4 @@ D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_MaskedTextBox.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_MonthCalendar.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_NumericUpDown.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_PictureBox.resources
+D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_ProgressBar.resources

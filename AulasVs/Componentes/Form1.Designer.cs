@@ -48,13 +48,14 @@
       this.listViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.makedTextBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.monthCalendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.numericUpDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.pictureBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.nyi_menu = new System.Windows.Forms.NotifyIcon(this.components);
       this.ctm_menu = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.tsi_Restaurar = new System.Windows.Forms.ToolStripMenuItem();
       this.tsi_mensagem = new System.Windows.Forms.ToolStripMenuItem();
       this.tsi_fechar = new System.Windows.Forms.ToolStripMenuItem();
-      this.numericUpDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.pictureBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.progressBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.mus_Menu.SuspendLayout();
       this.ctm_menu.SuspendLayout();
       this.SuspendLayout();
@@ -147,7 +148,8 @@
             this.makedTextBoxToolStripMenuItem,
             this.monthCalendarToolStripMenuItem,
             this.numericUpDownToolStripMenuItem,
-            this.pictureBoxToolStripMenuItem});
+            this.pictureBoxToolStripMenuItem,
+            this.progressBarToolStripMenuItem});
       this.componentesToolStripMenuItem.Name = "componentesToolStripMenuItem";
       this.componentesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
       this.componentesToolStripMenuItem.Text = "Componentes";
@@ -215,6 +217,20 @@
       this.monthCalendarToolStripMenuItem.Text = "MonthCalendar";
       this.monthCalendarToolStripMenuItem.Click += new System.EventHandler(this.monthCalendarToolStripMenuItem_Click);
       // 
+      // numericUpDownToolStripMenuItem
+      // 
+      this.numericUpDownToolStripMenuItem.Name = "numericUpDownToolStripMenuItem";
+      this.numericUpDownToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.numericUpDownToolStripMenuItem.Text = "NumericUpDown";
+      this.numericUpDownToolStripMenuItem.Click += new System.EventHandler(this.numericUpDownToolStripMenuItem_Click);
+      // 
+      // pictureBoxToolStripMenuItem
+      // 
+      this.pictureBoxToolStripMenuItem.Name = "pictureBoxToolStripMenuItem";
+      this.pictureBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.pictureBoxToolStripMenuItem.Text = "PictureBox";
+      this.pictureBoxToolStripMenuItem.Click += new System.EventHandler(this.pictureBoxToolStripMenuItem_Click);
+      // 
       // nyi_menu
       // 
       this.nyi_menu.ContextMenuStrip = this.ctm_menu;
@@ -253,19 +269,12 @@
       this.tsi_fechar.Size = new System.Drawing.Size(108, 22);
       this.tsi_fechar.Text = "Fechar";
       // 
-      // numericUpDownToolStripMenuItem
+      // progressBarToolStripMenuItem
       // 
-      this.numericUpDownToolStripMenuItem.Name = "numericUpDownToolStripMenuItem";
-      this.numericUpDownToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-      this.numericUpDownToolStripMenuItem.Text = "NumericUpDown";
-      this.numericUpDownToolStripMenuItem.Click += new System.EventHandler(this.numericUpDownToolStripMenuItem_Click);
-      // 
-      // pictureBoxToolStripMenuItem
-      // 
-      this.pictureBoxToolStripMenuItem.Name = "pictureBoxToolStripMenuItem";
-      this.pictureBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-      this.pictureBoxToolStripMenuItem.Text = "PictureBox";
-      this.pictureBoxToolStripMenuItem.Click += new System.EventHandler(this.pictureBoxToolStripMenuItem_Click);
+      this.progressBarToolStripMenuItem.Name = "progressBarToolStripMenuItem";
+      this.progressBarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.progressBarToolStripMenuItem.Text = "ProgressBar";
+      this.progressBarToolStripMenuItem.Click += new System.EventHandler(this.progressBarToolStripMenuItem_Click);
       // 
       // F_Principal
       // 
@@ -321,6 +330,7 @@
     private System.Windows.Forms.ToolStripMenuItem tsi_fechar;
     private System.Windows.Forms.ToolStripMenuItem numericUpDownToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem pictureBoxToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem progressBarToolStripMenuItem;
   }
 }
 
