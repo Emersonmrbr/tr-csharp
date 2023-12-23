@@ -1,0 +1,10 @@
+D:\tr-csharp\AulasVs\EditorTexto\bin\Debug\EditorTexto.exe.config
+D:\tr-csharp\AulasVs\EditorTexto\bin\Debug\EditorTexto.exe
+D:\tr-csharp\AulasVs\EditorTexto\bin\Debug\EditorTexto.pdb
+D:\tr-csharp\AulasVs\EditorTexto\obj\Debug\EditorTexto.csproj.AssemblyReference.cache
+D:\tr-csharp\AulasVs\EditorTexto\obj\Debug\EditorTexto.Properties.Resources.resources
+D:\tr-csharp\AulasVs\EditorTexto\obj\Debug\EditorTexto.csproj.GenerateResource.cache
+D:\tr-csharp\AulasVs\EditorTexto\obj\Debug\EditorTexto.csproj.CoreCompileInputs.cache
+D:\tr-csharp\AulasVs\EditorTexto\obj\Debug\EditorTexto.exe
+D:\tr-csharp\AulasVs\EditorTexto\obj\Debug\EditorTexto.pdb
+D:\tr-csharp\AulasVs\EditorTexto\obj\Debug\EditorTexto.F_Principal.resources
