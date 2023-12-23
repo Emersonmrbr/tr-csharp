@@ -92,5 +92,11 @@ namespace Componentes
       F_ListView f_ListView = new F_ListView();
       f_ListView.ShowDialog();
     }
+
+    private void makedTextBoxToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      F_MaskedTextBox f_MaskedTextBox = new F_MaskedTextBox();
+      f_MaskedTextBox.ShowDialog();
+    }
   }
 }

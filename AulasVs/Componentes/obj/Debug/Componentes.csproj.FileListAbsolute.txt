@@ -41,3 +41,4 @@ D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_DateTimePicker.resource
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_LinkLabel.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_ListBox.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_ListView.resources
+D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_MaskedTextBox.resources
