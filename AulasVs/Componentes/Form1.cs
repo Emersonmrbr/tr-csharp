@@ -104,5 +104,21 @@ namespace Componentes
       F_MonthCalendar f_MonthCalendar = new F_MonthCalendar();
       f_MonthCalendar.ShowDialog();
     }
+
+    private void ctm_menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    {
+      if (e.ClickedItem.Name.ToString() == "tsi_fechar")
+      {
+        this.Close();
+      }
+      if (e.ClickedItem.Name.ToString() == "tsi_mensagem")
+      {
+        MessageBox.Show(text: "Eita, Núcleo MAP");
+      }
+      if (e.ClickedItem.Name.ToString() == "tsi_Restaurar")
+      {
+        this.WindowState = FormWindowState.Normal;
+      }
+    }
   }
 }

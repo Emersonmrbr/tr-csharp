@@ -28,6 +28,8 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Principal));
       this.Btn_Adicionar = new System.Windows.Forms.Button();
       this.Tb_Veiculo = new System.Windows.Forms.TextBox();
       this.Lb_Titulo = new System.Windows.Forms.Label();
@@ -35,7 +37,7 @@
       this.Btn_Limpar = new System.Windows.Forms.Button();
       this.Btn_Mostrar = new System.Windows.Forms.Button();
       this.Btn_valNum = new System.Windows.Forms.Button();
-      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+      this.mus_Menu = new System.Windows.Forms.MenuStrip();
       this.componentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.checkboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.checkedListBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +48,13 @@
       this.listViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.makedTextBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.monthCalendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.menuStrip1.SuspendLayout();
+      this.nyi_menu = new System.Windows.Forms.NotifyIcon(this.components);
+      this.ctm_menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.tsi_Restaurar = new System.Windows.Forms.ToolStripMenuItem();
+      this.tsi_mensagem = new System.Windows.Forms.ToolStripMenuItem();
+      this.tsi_fechar = new System.Windows.Forms.ToolStripMenuItem();
+      this.mus_Menu.SuspendLayout();
+      this.ctm_menu.SuspendLayout();
       this.SuspendLayout();
       // 
       // Btn_Adicionar
@@ -114,15 +122,15 @@
       this.Btn_valNum.UseVisualStyleBackColor = true;
       this.Btn_valNum.Click += new System.EventHandler(this.Btn_valNum_Click);
       // 
-      // menuStrip1
+      // mus_Menu
       // 
-      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.mus_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.componentesToolStripMenuItem});
-      this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-      this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(284, 24);
-      this.menuStrip1.TabIndex = 7;
-      this.menuStrip1.Text = "menuStrip1";
+      this.mus_Menu.Location = new System.Drawing.Point(0, 0);
+      this.mus_Menu.Name = "mus_Menu";
+      this.mus_Menu.Size = new System.Drawing.Size(284, 24);
+      this.mus_Menu.TabIndex = 7;
+      this.mus_Menu.Text = "Menu";
       // 
       // componentesToolStripMenuItem
       // 
@@ -143,65 +151,103 @@
       // checkboxToolStripMenuItem
       // 
       this.checkboxToolStripMenuItem.Name = "checkboxToolStripMenuItem";
-      this.checkboxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.checkboxToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
       this.checkboxToolStripMenuItem.Text = "Checkbox";
       this.checkboxToolStripMenuItem.Click += new System.EventHandler(this.checkboxToolStripMenuItem_Click);
       // 
       // checkedListBoxToolStripMenuItem
       // 
       this.checkedListBoxToolStripMenuItem.Name = "checkedListBoxToolStripMenuItem";
-      this.checkedListBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.checkedListBoxToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
       this.checkedListBoxToolStripMenuItem.Text = "CheckedListBox";
       this.checkedListBoxToolStripMenuItem.Click += new System.EventHandler(this.checkedListBoxToolStripMenuItem_Click);
       // 
       // comboBoxToolStripMenuItem
       // 
       this.comboBoxToolStripMenuItem.Name = "comboBoxToolStripMenuItem";
-      this.comboBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.comboBoxToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
       this.comboBoxToolStripMenuItem.Text = "ComboBox";
       this.comboBoxToolStripMenuItem.Click += new System.EventHandler(this.comboBoxToolStripMenuItem_Click);
       // 
       // dataTimePickerToolStripMenuItem
       // 
       this.dataTimePickerToolStripMenuItem.Name = "dataTimePickerToolStripMenuItem";
-      this.dataTimePickerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.dataTimePickerToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
       this.dataTimePickerToolStripMenuItem.Text = "DataTimePicker";
       this.dataTimePickerToolStripMenuItem.Click += new System.EventHandler(this.dataTimePickerToolStripMenuItem_Click);
       // 
       // linkLabelToolStripMenuItem
       // 
       this.linkLabelToolStripMenuItem.Name = "linkLabelToolStripMenuItem";
-      this.linkLabelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.linkLabelToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
       this.linkLabelToolStripMenuItem.Text = "Link / Label";
       this.linkLabelToolStripMenuItem.Click += new System.EventHandler(this.linkLabelToolStripMenuItem_Click);
       // 
       // listBoxToolStripMenuItem
       // 
       this.listBoxToolStripMenuItem.Name = "listBoxToolStripMenuItem";
-      this.listBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.listBoxToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
       this.listBoxToolStripMenuItem.Text = "ListBox";
       this.listBoxToolStripMenuItem.Click += new System.EventHandler(this.listBoxToolStripMenuItem_Click);
       // 
       // listViewToolStripMenuItem
       // 
       this.listViewToolStripMenuItem.Name = "listViewToolStripMenuItem";
-      this.listViewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.listViewToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
       this.listViewToolStripMenuItem.Text = "ListView";
       this.listViewToolStripMenuItem.Click += new System.EventHandler(this.listViewToolStripMenuItem_Click);
       // 
       // makedTextBoxToolStripMenuItem
       // 
       this.makedTextBoxToolStripMenuItem.Name = "makedTextBoxToolStripMenuItem";
-      this.makedTextBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.makedTextBoxToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
       this.makedTextBoxToolStripMenuItem.Text = "MakedTextBox";
       this.makedTextBoxToolStripMenuItem.Click += new System.EventHandler(this.makedTextBoxToolStripMenuItem_Click);
       // 
       // monthCalendarToolStripMenuItem
       // 
       this.monthCalendarToolStripMenuItem.Name = "monthCalendarToolStripMenuItem";
-      this.monthCalendarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.monthCalendarToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
       this.monthCalendarToolStripMenuItem.Text = "MonthCalendar";
       this.monthCalendarToolStripMenuItem.Click += new System.EventHandler(this.monthCalendarToolStripMenuItem_Click);
+      // 
+      // nyi_menu
+      // 
+      this.nyi_menu.ContextMenuStrip = this.ctm_menu;
+      this.nyi_menu.Icon = ((System.Drawing.Icon)(resources.GetObject("nyi_menu.Icon")));
+      this.nyi_menu.Text = "Núcleo MAP";
+      this.nyi_menu.Visible = true;
+      // 
+      // ctm_menu
+      // 
+      this.ctm_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsi_Restaurar,
+            this.tsi_mensagem,
+            this.tsi_fechar});
+      this.ctm_menu.Name = "ctm_menu";
+      this.ctm_menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+      this.ctm_menu.ShowImageMargin = false;
+      this.ctm_menu.Size = new System.Drawing.Size(109, 70);
+      this.ctm_menu.Text = "Menu";
+      this.ctm_menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ctm_menu_ItemClicked);
+      // 
+      // tsi_Restaurar
+      // 
+      this.tsi_Restaurar.Name = "tsi_Restaurar";
+      this.tsi_Restaurar.Size = new System.Drawing.Size(108, 22);
+      this.tsi_Restaurar.Text = "Restaurar";
+      // 
+      // tsi_mensagem
+      // 
+      this.tsi_mensagem.Name = "tsi_mensagem";
+      this.tsi_mensagem.Size = new System.Drawing.Size(108, 22);
+      this.tsi_mensagem.Text = "Mensagem";
+      // 
+      // tsi_fechar
+      // 
+      this.tsi_fechar.Name = "tsi_fechar";
+      this.tsi_fechar.Size = new System.Drawing.Size(108, 22);
+      this.tsi_fechar.Text = "Fechar";
       // 
       // F_Principal
       // 
@@ -215,15 +261,16 @@
       this.Controls.Add(this.Lb_Titulo);
       this.Controls.Add(this.Tb_Veiculo);
       this.Controls.Add(this.Btn_Adicionar);
-      this.Controls.Add(this.menuStrip1);
+      this.Controls.Add(this.mus_Menu);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-      this.MainMenuStrip = this.menuStrip1;
+      this.MainMenuStrip = this.mus_Menu;
       this.MaximizeBox = false;
       this.Name = "F_Principal";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Componentes";
-      this.menuStrip1.ResumeLayout(false);
-      this.menuStrip1.PerformLayout();
+      this.mus_Menu.ResumeLayout(false);
+      this.mus_Menu.PerformLayout();
+      this.ctm_menu.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -238,7 +285,7 @@
     private System.Windows.Forms.Button Btn_Mostrar;
     private System.Windows.Forms.Button Btn_valNum;
     public System.Windows.Forms.TextBox Tb_listaVeiculos;
-    private System.Windows.Forms.MenuStrip menuStrip1;
+    private System.Windows.Forms.MenuStrip mus_Menu;
     private System.Windows.Forms.ToolStripMenuItem componentesToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem checkboxToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem checkedListBoxToolStripMenuItem;
@@ -249,6 +296,11 @@
     private System.Windows.Forms.ToolStripMenuItem listViewToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem makedTextBoxToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem monthCalendarToolStripMenuItem;
+    private System.Windows.Forms.NotifyIcon nyi_menu;
+    private System.Windows.Forms.ContextMenuStrip ctm_menu;
+    private System.Windows.Forms.ToolStripMenuItem tsi_Restaurar;
+    private System.Windows.Forms.ToolStripMenuItem tsi_mensagem;
+    private System.Windows.Forms.ToolStripMenuItem tsi_fechar;
   }
 }
 
