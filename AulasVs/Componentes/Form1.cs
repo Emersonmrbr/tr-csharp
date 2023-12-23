@@ -126,5 +126,11 @@ namespace Componentes
       F_NumericUpDown f_numericUpDown = new F_NumericUpDown();
       f_numericUpDown.ShowDialog();
     }
+
+    private void pictureBoxToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      F_PictureBox f_PictureBox = new F_PictureBox();
+      f_PictureBox.ShowDialog();
+    }
   }
 }
