@@ -123,6 +123,7 @@
       this.abiriToolStripMenuItem.Name = "abiriToolStripMenuItem";
       this.abiriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.abiriToolStripMenuItem.Text = "Abrir";
+      this.abiriToolStripMenuItem.Click += new System.EventHandler(this.abiriToolStripMenuItem_Click);
       // 
       // salvarToolStripMenuItem
       // 
@@ -290,6 +291,7 @@
       this.tsb_abrir.Name = "tsb_abrir";
       this.tsb_abrir.Size = new System.Drawing.Size(23, 22);
       this.tsb_abrir.Text = "Abrir";
+      this.tsb_abrir.Click += new System.EventHandler(this.tsb_abrir_Click);
       // 
       // tsb_salvar
       // 
@@ -350,7 +352,7 @@
       // tsb_sublinhado
       // 
       this.tsb_sublinhado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.tsb_sublinhado.Image = global::EditorTexto.Properties.Resources.underline;
+      this.tsb_sublinhado.Image = global::EditorTexto.Properties.Resources.strikethrough;
       this.tsb_sublinhado.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.tsb_sublinhado.Name = "tsb_sublinhado";
       this.tsb_sublinhado.Size = new System.Drawing.Size(23, 22);
@@ -409,6 +411,8 @@
       // sfd_salvar
       // 
       this.sfd_salvar.DefaultExt = "map";
+      this.sfd_salvar.Filter = "(*.map)|*.map";
+      this.sfd_salvar.InitialDirectory = "@\"C:\\Users\\emers\\Documents\\VirtualMachines\"";
       // 
       // ptd_imprimir
       // 
