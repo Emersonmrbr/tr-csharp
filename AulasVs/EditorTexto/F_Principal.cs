@@ -134,6 +134,34 @@ namespace EditorTexto
       }
     }
 
+    private void Negrito()
+    {
+      string nomeFonte = rht_editor.Font.Name;
+      float tamanhoFonte = rht_editor.Font.Size;
+      Console.WriteLine(nomeFonte + tamanhoFonte);
+      rht_editor.SelectionFont = rht_editor.Font.Bold == false
+        ? new Font(nomeFonte, tamanhoFonte, FontStyle.Bold)
+        : new Font(nomeFonte, tamanhoFonte, FontStyle.Regular);
+    }
+
+    private void Italico()
+    {
+      string nomeFonte = rht_editor.Font.Name;
+      float tamanhoFonte = rht_editor.Font.Size;
+      rht_editor.SelectionFont = rht_editor.Font.Italic == false
+        ? new Font(nomeFonte, tamanhoFonte, FontStyle.Italic)
+        : new Font(nomeFonte, tamanhoFonte, FontStyle.Regular);
+    }
+
+    private void Sublinhado()
+    {
+      string nomeFonte = rht_editor.Font.Name;
+      float tamanhoFonte = rht_editor.Font.Size;
+      rht_editor.SelectionFont = rht_editor.Font.Underline == false
+        ? new Font(nomeFonte, tamanhoFonte, FontStyle.Underline)
+        : new Font(nomeFonte, tamanhoFonte, FontStyle.Regular);
+    }
+
     private void tsb_novo_Click(object sender, EventArgs e)
     {
       Novo();
@@ -197,6 +225,36 @@ namespace EditorTexto
     private void sairToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Fechar();
+    }
+
+    private void negritoToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Negrito();
+    }
+
+    private void itálicoToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Italico();
+    }
+
+    private void sublinhadoToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Sublinhado();
+    }
+
+    private void tsb_negrito_Click(object sender, EventArgs e)
+    {
+      Negrito();
+    }
+
+    private void tsb_italico_Click(object sender, EventArgs e)
+    {
+      Italico();
+    }
+
+    private void tsb_sublinhado_Click(object sender, EventArgs e)
+    {
+      Sublinhado();
     }
   }
 }

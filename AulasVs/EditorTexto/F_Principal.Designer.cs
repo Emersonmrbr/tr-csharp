@@ -204,20 +204,23 @@
       // negritoToolStripMenuItem
       // 
       this.negritoToolStripMenuItem.Name = "negritoToolStripMenuItem";
-      this.negritoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+      this.negritoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.negritoToolStripMenuItem.Text = "Negrito";
+      this.negritoToolStripMenuItem.Click += new System.EventHandler(this.negritoToolStripMenuItem_Click);
       // 
       // itálicoToolStripMenuItem
       // 
       this.itálicoToolStripMenuItem.Name = "itálicoToolStripMenuItem";
-      this.itálicoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+      this.itálicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.itálicoToolStripMenuItem.Text = "Itálico";
+      this.itálicoToolStripMenuItem.Click += new System.EventHandler(this.itálicoToolStripMenuItem_Click);
       // 
       // sublinhadoToolStripMenuItem
       // 
       this.sublinhadoToolStripMenuItem.Name = "sublinhadoToolStripMenuItem";
-      this.sublinhadoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+      this.sublinhadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.sublinhadoToolStripMenuItem.Text = "Sublinhado";
+      this.sublinhadoToolStripMenuItem.Click += new System.EventHandler(this.sublinhadoToolStripMenuItem_Click);
       // 
       // alinhamentoToolStripMenuItem
       // 
@@ -227,7 +230,7 @@
             this.direitaToolStripMenuItem,
             this.justificadoToolStripMenuItem});
       this.alinhamentoToolStripMenuItem.Name = "alinhamentoToolStripMenuItem";
-      this.alinhamentoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+      this.alinhamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.alinhamentoToolStripMenuItem.Text = "Alinhamento";
       // 
       // centralizadoToolStripMenuItem
@@ -348,6 +351,7 @@
       this.tsb_negrito.Name = "tsb_negrito";
       this.tsb_negrito.Size = new System.Drawing.Size(23, 22);
       this.tsb_negrito.Text = "Negrito";
+      this.tsb_negrito.Click += new System.EventHandler(this.tsb_negrito_Click);
       // 
       // tsb_italico
       // 
@@ -357,6 +361,7 @@
       this.tsb_italico.Name = "tsb_italico";
       this.tsb_italico.Size = new System.Drawing.Size(23, 22);
       this.tsb_italico.Text = "Itálico";
+      this.tsb_italico.Click += new System.EventHandler(this.tsb_italico_Click);
       // 
       // tsb_sublinhado
       // 
@@ -366,6 +371,7 @@
       this.tsb_sublinhado.Name = "tsb_sublinhado";
       this.tsb_sublinhado.Size = new System.Drawing.Size(23, 22);
       this.tsb_sublinhado.Text = "Sublinhado";
+      this.tsb_sublinhado.Click += new System.EventHandler(this.tsb_sublinhado_Click);
       // 
       // tsb_fonte
       // 
