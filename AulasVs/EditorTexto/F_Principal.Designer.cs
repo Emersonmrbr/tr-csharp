@@ -49,8 +49,8 @@
       this.itálicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.sublinhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.alinhamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.centralizadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.esquerdaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.centralizadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.direitaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.justificadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.tls_ferramentas = new System.Windows.Forms.ToolStrip();
@@ -76,6 +76,7 @@
       this.sfd_salvar = new System.Windows.Forms.SaveFileDialog();
       this.ptd_imprimir = new System.Windows.Forms.PrintDialog();
       this.ptd_imprimirDocumento = new System.Drawing.Printing.PrintDocument();
+      this.tsb_imprimir = new System.Windows.Forms.ToolStripButton();
       this.mus_menu.SuspendLayout();
       this.tls_ferramentas.SuspendLayout();
       this.SuspendLayout();
@@ -117,39 +118,40 @@
       // novoToolStripMenuItem
       // 
       this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-      this.novoToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+      this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.novoToolStripMenuItem.Text = "Novo";
       this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
       // 
       // abiriToolStripMenuItem
       // 
       this.abiriToolStripMenuItem.Name = "abiriToolStripMenuItem";
-      this.abiriToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+      this.abiriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.abiriToolStripMenuItem.Text = "Abrir";
       this.abiriToolStripMenuItem.Click += new System.EventHandler(this.abiriToolStripMenuItem_Click);
       // 
       // salvarToolStripMenuItem
       // 
       this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-      this.salvarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+      this.salvarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.salvarToolStripMenuItem.Text = "Salvar";
       this.salvarToolStripMenuItem.Click += new System.EventHandler(this.salvarToolStripMenuItem_Click);
       // 
       // imprimirToolStripMenuItem
       // 
       this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-      this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+      this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.imprimirToolStripMenuItem.Text = "Imprimir";
+      this.imprimirToolStripMenuItem.Click += new System.EventHandler(this.imprimirToolStripMenuItem_Click);
       // 
       // toolStripSeparator1
       // 
       this.toolStripSeparator1.Name = "toolStripSeparator1";
-      this.toolStripSeparator1.Size = new System.Drawing.Size(117, 6);
+      this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
       // 
       // sairToolStripMenuItem
       // 
       this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-      this.sairToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+      this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.sairToolStripMenuItem.Text = "Sair";
       this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
       // 
@@ -241,19 +243,19 @@
       this.alinhamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.alinhamentoToolStripMenuItem.Text = "Alinhamento";
       // 
-      // centralizadoToolStripMenuItem
-      // 
-      this.centralizadoToolStripMenuItem.Name = "centralizadoToolStripMenuItem";
-      this.centralizadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-      this.centralizadoToolStripMenuItem.Text = "Centralizado";
-      this.centralizadoToolStripMenuItem.Click += new System.EventHandler(this.centralizadoToolStripMenuItem_Click);
-      // 
       // esquerdaToolStripMenuItem
       // 
       this.esquerdaToolStripMenuItem.Name = "esquerdaToolStripMenuItem";
       this.esquerdaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.esquerdaToolStripMenuItem.Text = "Esquerda";
       this.esquerdaToolStripMenuItem.Click += new System.EventHandler(this.esquerdaToolStripMenuItem_Click);
+      // 
+      // centralizadoToolStripMenuItem
+      // 
+      this.centralizadoToolStripMenuItem.Name = "centralizadoToolStripMenuItem";
+      this.centralizadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.centralizadoToolStripMenuItem.Text = "Centralizado";
+      this.centralizadoToolStripMenuItem.Click += new System.EventHandler(this.centralizadoToolStripMenuItem_Click);
       // 
       // direitaToolStripMenuItem
       // 
@@ -274,6 +276,7 @@
             this.tsb_novo,
             this.tsb_abrir,
             this.tsb_salvar,
+            this.tsb_imprimir,
             this.tss_seprador1,
             this.tsb_copiar,
             this.tsb_colar,
@@ -457,6 +460,20 @@
       // 
       this.ptd_imprimir.UseEXDialog = true;
       // 
+      // ptd_imprimirDocumento
+      // 
+      this.ptd_imprimirDocumento.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.ptd_imprimirDocumento_PrintPage);
+      // 
+      // tsb_imprimir
+      // 
+      this.tsb_imprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.tsb_imprimir.Image = global::EditorTexto.Properties.Resources.printer;
+      this.tsb_imprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.tsb_imprimir.Name = "tsb_imprimir";
+      this.tsb_imprimir.Size = new System.Drawing.Size(23, 22);
+      this.tsb_imprimir.Text = "Imprimir";
+      this.tsb_imprimir.Click += new System.EventHandler(this.tsb_imprimir_Click);
+      // 
       // F_Principal
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,6 +546,7 @@
     private System.Drawing.Printing.PrintDocument ptd_imprimirDocumento;
     private System.Windows.Forms.ToolStripMenuItem recortarToolStripMenuItem;
     private System.Windows.Forms.ToolStripButton tsb_recortar;
+    private System.Windows.Forms.ToolStripButton tsb_imprimir;
   }
 }
 

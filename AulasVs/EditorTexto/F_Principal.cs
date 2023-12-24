@@ -13,7 +13,7 @@ namespace EditorTexto
 {
   public partial class F_Principal : Form
   {
-    StreamReader leitura = null;
+    StringReader leitura = null;
     public F_Principal()
     {
       InitializeComponent();
@@ -174,6 +174,16 @@ namespace EditorTexto
       rht_editor.SelectionAlignment = HorizontalAlignment.Right;
     }
 
+    private void Imprimir()
+    {
+      ptd_imprimir.Document = ptd_imprimirDocumento;
+      leitura = new StringReader(this.rht_editor.Text);
+      if (ptd_imprimir.ShowDialog() == DialogResult.OK)
+      {
+        this.ptd_imprimirDocumento.Print();
+      }
+    }
+
     private void tsb_novo_Click(object sender, EventArgs e)
     {
       Novo();
@@ -304,6 +314,30 @@ namespace EditorTexto
     private void direitaToolStripMenuItem_Click(object sender, EventArgs e)
     {
       AlinharDireita();
+    }
+
+    private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Imprimir();
+    }
+
+    private void tsb_imprimir_Click(object sender, EventArgs e)
+    {
+      Imprimir();
+    }
+
+    private void ptd_imprimirDocumento_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+    {
+      const float margemFixa = 50;
+      float linhasPagina = 0;
+      float posicionamentoY = 0;
+      int cotador = 0;
+      float margemEsquerda = Math.Max(e.MarginBounds.Left - margemFixa, 5);
+      float margemSuperior = Math.Max(e.MarginBounds.Top - margemFixa, 5);
+      string linha = null;
+      Font fonte = this.rht_editor.Font;
+      SolidBrush pincel = new SolidBrush(Color.Black);
+
     }
   }
 }
