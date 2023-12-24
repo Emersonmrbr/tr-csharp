@@ -92,6 +92,48 @@ namespace EditorTexto
       }
     }
 
+    private void Fechar()
+    {
+
+      if (rht_editor.Text != string.Empty)
+      {
+        DialogResult msg = MessageBox.Show("Deseja salvar o arquivo", "Salvar", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+        if (msg == DialogResult.OK)
+        {
+          Salvar();
+          Close();
+        }
+        else
+        {
+          Close();
+        }
+      }
+      else
+      {
+        Close();
+      }
+    }
+
+    private void Copiar()
+    {
+      if (rht_editor.SelectionLength > 0)
+      {
+        rht_editor.Copy();
+      }
+    }
+
+    private void Colar()
+    {
+      rht_editor.Paste();
+    }
+    private void Recortar()
+    {
+      if (rht_editor.SelectionLength >0)
+      {
+        rht_editor.Cut();
+      }
+    }
+
     private void tsb_novo_Click(object sender, EventArgs e)
     {
       Novo();
@@ -120,6 +162,41 @@ namespace EditorTexto
     private void abiriToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Abrir();
+    }
+
+    private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Copiar();
+    }
+
+    private void tsb_copiar_Click(object sender, EventArgs e)
+    {
+      Copiar();
+    }
+
+    private void colarToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Colar();
+    }
+
+    private void tsb_colar_Click(object sender, EventArgs e)
+    {
+      Colar();
+    }
+
+    private void recortarToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Recortar();
+    }
+
+    private void tsb_recortar_Click(object sender, EventArgs e)
+    {
+      Recortar();
+    }
+
+    private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Fechar();
     }
   }
 }

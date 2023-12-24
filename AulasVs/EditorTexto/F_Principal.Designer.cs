@@ -74,6 +74,8 @@
       this.sfd_salvar = new System.Windows.Forms.SaveFileDialog();
       this.ptd_imprimir = new System.Windows.Forms.PrintDialog();
       this.ptd_imprimirDocumento = new System.Drawing.Printing.PrintDocument();
+      this.recortarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.tsb_recortar = new System.Windows.Forms.ToolStripButton();
       this.mus_menu.SuspendLayout();
       this.tls_ferramentas.SuspendLayout();
       this.SuspendLayout();
@@ -148,12 +150,14 @@
       this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
       this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.sairToolStripMenuItem.Text = "Sair";
+      this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
       // 
       // editarToolStripMenuItem
       // 
       this.editarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copiarToolStripMenuItem,
             this.colarToolStripMenuItem,
+            this.recortarToolStripMenuItem,
             this.desfazerToolStripMenuItem,
             this.refazerToolStripMenuItem});
       this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
@@ -163,25 +167,27 @@
       // copiarToolStripMenuItem
       // 
       this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-      this.copiarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+      this.copiarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.copiarToolStripMenuItem.Text = "Copiar";
+      this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
       // 
       // colarToolStripMenuItem
       // 
       this.colarToolStripMenuItem.Name = "colarToolStripMenuItem";
-      this.colarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+      this.colarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.colarToolStripMenuItem.Text = "Colar";
+      this.colarToolStripMenuItem.Click += new System.EventHandler(this.colarToolStripMenuItem_Click);
       // 
       // desfazerToolStripMenuItem
       // 
       this.desfazerToolStripMenuItem.Name = "desfazerToolStripMenuItem";
-      this.desfazerToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+      this.desfazerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.desfazerToolStripMenuItem.Text = "Desfazer";
       // 
       // refazerToolStripMenuItem
       // 
       this.refazerToolStripMenuItem.Name = "refazerToolStripMenuItem";
-      this.refazerToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+      this.refazerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.refazerToolStripMenuItem.Text = "Refazer";
       // 
       // formatarToolStripMenuItem
@@ -257,6 +263,7 @@
             this.tss_seprador1,
             this.tsb_copiar,
             this.tsb_colar,
+            this.tsb_recortar,
             this.tss_separador2,
             this.tsb_negrito,
             this.tsb_italico,
@@ -316,6 +323,7 @@
       this.tsb_copiar.Name = "tsb_copiar";
       this.tsb_copiar.Size = new System.Drawing.Size(23, 22);
       this.tsb_copiar.Text = "Copiar";
+      this.tsb_copiar.Click += new System.EventHandler(this.tsb_copiar_Click);
       // 
       // tsb_colar
       // 
@@ -325,6 +333,7 @@
       this.tsb_colar.Name = "tsb_colar";
       this.tsb_colar.Size = new System.Drawing.Size(23, 22);
       this.tsb_colar.Text = "Colar";
+      this.tsb_colar.Click += new System.EventHandler(this.tsb_colar_Click);
       // 
       // tss_separador2
       // 
@@ -418,6 +427,23 @@
       // 
       this.ptd_imprimir.UseEXDialog = true;
       // 
+      // recortarToolStripMenuItem
+      // 
+      this.recortarToolStripMenuItem.Name = "recortarToolStripMenuItem";
+      this.recortarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.recortarToolStripMenuItem.Text = "Recortar";
+      this.recortarToolStripMenuItem.Click += new System.EventHandler(this.recortarToolStripMenuItem_Click);
+      // 
+      // tsb_recortar
+      // 
+      this.tsb_recortar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.tsb_recortar.Image = global::EditorTexto.Properties.Resources.scissors;
+      this.tsb_recortar.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.tsb_recortar.Name = "tsb_recortar";
+      this.tsb_recortar.Size = new System.Drawing.Size(23, 22);
+      this.tsb_recortar.Text = "Recortar";
+      this.tsb_recortar.Click += new System.EventHandler(this.tsb_recortar_Click);
+      // 
       // F_Principal
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,6 +514,8 @@
     private System.Windows.Forms.SaveFileDialog sfd_salvar;
     private System.Windows.Forms.PrintDialog ptd_imprimir;
     private System.Drawing.Printing.PrintDocument ptd_imprimirDocumento;
+    private System.Windows.Forms.ToolStripMenuItem recortarToolStripMenuItem;
+    private System.Windows.Forms.ToolStripButton tsb_recortar;
   }
 }
 
