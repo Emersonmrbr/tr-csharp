@@ -20,7 +20,7 @@ namespace EditorTexto
     }
     private void Novo()
     {
-      
+
       if (rht_editor.Text != string.Empty)
       {
         DialogResult msg = MessageBox.Show("Deseja salvar o arquivo", "Salvar", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -60,7 +60,7 @@ namespace EditorTexto
       }
       catch (Exception e)
       {
-        MessageBox.Show("Não foi possivel salvar: "+ e.Message,"Falha ao salvar", MessageBoxButtons.OK,MessageBoxIcon.Error);
+        MessageBox.Show("Não foi possivel salvar: " + e.Message, "Falha ao salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
       }
     }
 
@@ -75,7 +75,7 @@ namespace EditorTexto
         {
           FileStream arquivo = new FileStream(ofd_abrir.FileName, FileMode.Open, FileAccess.Read);
           StreamReader leitor = new StreamReader(arquivo);
-          leitor.BaseStream.Seek (0, SeekOrigin.Begin);
+          leitor.BaseStream.Seek(0, SeekOrigin.Begin);
           this.rht_editor.Clear();
           string linha = leitor.ReadLine();
           while (linha != null)
@@ -128,38 +128,37 @@ namespace EditorTexto
     }
     private void Recortar()
     {
-      if (rht_editor.SelectionLength >0)
+      if (rht_editor.SelectionLength > 0)
       {
         rht_editor.Cut();
       }
     }
 
+    private void AplicarEstilo(RichTextBox caixaTexto, FontStyle estilo)
+    {
+      Font fonteAtual = caixaTexto.SelectionFont;
+      FontStyle novoEstilo = fonteAtual.Style ^ estilo;
+      Font novaFonte = new Font(fonteAtual, novoEstilo);
+      caixaTexto.SelectionFont = novaFonte;
+    }
+
     private void Negrito()
     {
-      string nomeFonte = rht_editor.Font.Name;
-      float tamanhoFonte = rht_editor.Font.Size;
-      Console.WriteLine(nomeFonte + tamanhoFonte);
-      rht_editor.SelectionFont = rht_editor.Font.Bold == false
-        ? new Font(nomeFonte, tamanhoFonte, FontStyle.Bold)
-        : new Font(nomeFonte, tamanhoFonte, FontStyle.Regular);
+      AplicarEstilo(rht_editor, FontStyle.Bold);
+      tsb_negrito.Checked = rht_editor.SelectionFont.Bold;
+
     }
 
     private void Italico()
     {
-      string nomeFonte = rht_editor.Font.Name;
-      float tamanhoFonte = rht_editor.Font.Size;
-      rht_editor.SelectionFont = rht_editor.Font.Italic == false
-        ? new Font(nomeFonte, tamanhoFonte, FontStyle.Italic)
-        : new Font(nomeFonte, tamanhoFonte, FontStyle.Regular);
+      AplicarEstilo(rht_editor, FontStyle.Italic);
+      tsb_italico.Checked = rht_editor.SelectionFont.Italic;
     }
 
     private void Sublinhado()
     {
-      string nomeFonte = rht_editor.Font.Name;
-      float tamanhoFonte = rht_editor.Font.Size;
-      rht_editor.SelectionFont = rht_editor.Font.Underline == false
-        ? new Font(nomeFonte, tamanhoFonte, FontStyle.Underline)
-        : new Font(nomeFonte, tamanhoFonte, FontStyle.Regular);
+      AplicarEstilo(rht_editor, FontStyle.Underline);
+      tsb_sublinhado.Checked = rht_editor.SelectionFont.Underline;
     }
 
     private void tsb_novo_Click(object sender, EventArgs e)
@@ -255,6 +254,13 @@ namespace EditorTexto
     private void tsb_sublinhado_Click(object sender, EventArgs e)
     {
       Sublinhado();
+    }
+
+    private void rht_editor_SelectionChanged(object sender, EventArgs e)
+    {
+      tsb_negrito.Checked = rht_editor.SelectionFont.Bold;
+      tsb_italico.Checked = rht_editor.SelectionFont.Italic;
+      tsb_sublinhado.Checked = rht_editor.SelectionFont.Underline;
     }
   }
 }
