@@ -161,6 +161,19 @@ namespace EditorTexto
       tsb_sublinhado.Checked = rht_editor.SelectionFont.Underline;
     }
 
+    private void AlinharEsquerda()
+    {
+      rht_editor.SelectionAlignment = HorizontalAlignment.Left;
+    }
+    private void AlinharCentro()
+    {
+      rht_editor.SelectionAlignment = HorizontalAlignment.Center;
+    }
+    private void AlinharDireita()
+    {
+      rht_editor.SelectionAlignment = HorizontalAlignment.Right;
+    }
+
     private void tsb_novo_Click(object sender, EventArgs e)
     {
       Novo();
@@ -261,6 +274,36 @@ namespace EditorTexto
       tsb_negrito.Checked = rht_editor.SelectionFont.Bold;
       tsb_italico.Checked = rht_editor.SelectionFont.Italic;
       tsb_sublinhado.Checked = rht_editor.SelectionFont.Underline;
+    }
+
+    private void tsb_esquerda_Click(object sender, EventArgs e)
+    {
+      AlinharEsquerda();
+    }
+
+    private void esquerdaToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      AlinharEsquerda();
+    }
+
+    private void tsb_centro_Click(object sender, EventArgs e)
+    {
+      AlinharCentro();
+    }
+
+    private void centralizadoToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      AlinharCentro();
+    }
+
+    private void tsb_direita_Click(object sender, EventArgs e)
+    {
+      AlinharDireita();
+    }
+
+    private void direitaToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      AlinharDireita();
     }
   }
 }
