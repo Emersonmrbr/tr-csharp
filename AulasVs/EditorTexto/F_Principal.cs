@@ -13,7 +13,7 @@ namespace EditorTexto
 {
   public partial class F_Principal : Form
   {
-    StringReader leitura = null;
+    StringReader Leitura = null;
     public F_Principal()
     {
       InitializeComponent();
@@ -177,7 +177,7 @@ namespace EditorTexto
     private void Imprimir()
     {
       ptd_imprimir.Document = ptd_imprimirDocumento;
-      leitura = new StringReader(this.rht_editor.Text);
+      Leitura = new StringReader(this.rht_editor.Text);
       if (ptd_imprimir.ShowDialog() == DialogResult.OK)
       {
         this.ptd_imprimirDocumento.Print();
@@ -328,33 +328,28 @@ namespace EditorTexto
 
     private void ptd_imprimirDocumento_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
     {
-      const float margemFixa = 50;
-      float linhasPagina = 0;
-      float posicaoY = 0;
-      int contador = 0;
-      float margemEsquerda = Math.Max(e.MarginBounds.Left - margemFixa, 5);
-      float margemSuperior = Math.Max(e.MarginBounds.Top - margemFixa, 5);
-      string linha = null;
-      Font fonte = this.rht_editor.Font;
-      SolidBrush pincel = new SolidBrush(Color.Black);
-      linhasPagina = e.MarginBounds.Height / fonte.GetHeight(e.Graphics);
-      linha = leitura.ReadLine();
-      while (contador < linhasPagina)
+      const float MargemFixa = 50;
+      float LinhasPagina, PosicaoY, MargemEsquerda, MargemSuperior;
+      int Contador = 0;
+      string Linha = null;
+      Font Fonte = rht_editor.Font;
+      SolidBrush Pincel = new SolidBrush(Color.Black);
+
+      MargemEsquerda = Math.Max(e.MarginBounds.Left - MargemFixa, 5);
+      MargemSuperior = Math.Max(e.MarginBounds.Top - MargemFixa, 5);
+      LinhasPagina = e.MarginBounds.Height / Fonte.GetHeight(e.Graphics);
+
+      while (Contador < LinhasPagina && (Linha = Leitura.ReadLine()) != null)
       {
-        posicaoY = (margemSuperior + (contador * fonte.GetHeight(e.Graphics)));
-        e.Graphics.DrawString(linha, fonte, pincel, margemEsquerda, posicaoY, new StringFormat());
-        contador += 1;
-        linha = leitura.ReadLine();
+        PosicaoY = MargemSuperior + Contador * Fonte.GetHeight(e.Graphics);
+        e.Graphics.DrawString(Linha, Fonte, Pincel, MargemEsquerda, PosicaoY, new StringFormat());
+        Contador++;
       }
-      if (linha != null)
-      {
-        e.HasMorePages = true;
-      }
-      else
-      {
-        e.HasMorePages = false;
-      }
-      pincel.Dispose();
+
+      e.HasMorePages = Linha != null;
+      Pincel.Dispose();
+
+
     }
   }
 }
