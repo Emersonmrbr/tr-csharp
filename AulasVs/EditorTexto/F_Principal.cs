@@ -330,14 +330,31 @@ namespace EditorTexto
     {
       const float margemFixa = 50;
       float linhasPagina = 0;
-      float posicionamentoY = 0;
-      int cotador = 0;
+      float posicaoY = 0;
+      int contador = 0;
       float margemEsquerda = Math.Max(e.MarginBounds.Left - margemFixa, 5);
       float margemSuperior = Math.Max(e.MarginBounds.Top - margemFixa, 5);
       string linha = null;
       Font fonte = this.rht_editor.Font;
       SolidBrush pincel = new SolidBrush(Color.Black);
-
+      linhasPagina = e.MarginBounds.Height / fonte.GetHeight(e.Graphics);
+      linha = leitura.ReadLine();
+      while (contador < linhasPagina)
+      {
+        posicaoY = (margemSuperior + (contador * fonte.GetHeight(e.Graphics)));
+        e.Graphics.DrawString(linha, fonte, pincel, margemEsquerda, posicaoY, new StringFormat());
+        contador += 1;
+        linha = leitura.ReadLine();
+      }
+      if (linha != null)
+      {
+        e.HasMorePages = true;
+      }
+      else
+      {
+        e.HasMorePages = false;
+      }
+      pincel.Dispose();
     }
   }
 }
