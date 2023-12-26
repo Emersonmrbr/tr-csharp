@@ -21,17 +21,17 @@ namespace Componentes
 
     private void Btn_Adicionar_Click(object sender, EventArgs e)
     {
-            if (Tb_Veiculo.Text == "")
-            {
-              MessageBox.Show("Digite um veículo");
-              Tb_Veiculo.Focus();
-              return;
-            }
+      if (Tb_Veiculo.Text == "")
+      {
+        MessageBox.Show("Digite um veículo");
+        Tb_Veiculo.Focus();
+        return;
+      }
 
       Tb_listaVeiculos.Text += Tb_Veiculo.Text + ", ";
       Tb_Veiculo.Clear();
       Tb_Veiculo.Focus();
-        }
+    }
 
     private void Btn_Limpar_Click(object sender, EventArgs e)
     {
@@ -42,7 +42,7 @@ namespace Componentes
 
     private void Btn_Mostrar_Click(object sender, EventArgs e)
     {
-      F_Veiculos f_Veiculos = new F_Veiculos(Tb_listaVeiculos.Text,this);
+      F_Veiculos f_Veiculos = new F_Veiculos(Tb_listaVeiculos.Text, this);
       _ = f_Veiculos.ShowDialog();
     }
 
@@ -143,6 +143,12 @@ namespace Componentes
     {
       F_RadioButton f_RadioButton = new F_RadioButton();
       f_RadioButton.ShowDialog();
+    }
+
+    private void trackBarToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      F_TrackBar f_TrackBar = new F_TrackBar();
+      f_TrackBar.ShowDialog();
     }
   }
 }
