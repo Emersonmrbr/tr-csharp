@@ -19,7 +19,7 @@ namespace Componentes
     }
     private void Navegar()
     {
-      if (ttb_barraPesquisa.Text != string.Empty)
+      if (!string.IsNullOrEmpty(ttb_barraPesquisa.Text))
       {
         Wbb_browser.Navigate(ttb_barraPesquisa.Text);
       }
@@ -45,7 +45,7 @@ namespace Componentes
 
     private void Btnt_home_Click(object sender, EventArgs e)
     {
-      if (home == null)
+      if (string.IsNullOrEmpty(home))
       {
 
         Wbb_browser.GoHome();
