@@ -168,5 +168,11 @@ namespace Componentes
       F_SplitContainer f_SplitContainer = new F_SplitContainer();
       f_SplitContainer.ShowDialog();
     }
+
+    private void tabControlToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      F_TabControl f_TabControl = new F_TabControl();
+      f_TabControl.ShowDialog();
+    }
   }
 }

@@ -51,3 +51,4 @@ D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_TrackBar.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_TreeView.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_WebBrowser.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_SplitContainer.resources
+D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_TabControl.resources
