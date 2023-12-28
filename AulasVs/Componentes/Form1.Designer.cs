@@ -56,12 +56,13 @@
       this.treeViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.webBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.splitContainerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.tabControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.nyi_menu = new System.Windows.Forms.NotifyIcon(this.components);
       this.ctm_menu = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.tsi_Restaurar = new System.Windows.Forms.ToolStripMenuItem();
       this.tsi_mensagem = new System.Windows.Forms.ToolStripMenuItem();
       this.tsi_fechar = new System.Windows.Forms.ToolStripMenuItem();
-      this.tabControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.tableLayoutPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.mus_Menu.SuspendLayout();
       this.ctm_menu.SuspendLayout();
       this.SuspendLayout();
@@ -161,7 +162,8 @@
             this.treeViewToolStripMenuItem,
             this.webBrowserToolStripMenuItem,
             this.splitContainerToolStripMenuItem,
-            this.tabControlToolStripMenuItem});
+            this.tabControlToolStripMenuItem,
+            this.tableLayoutPanelToolStripMenuItem});
       this.componentesToolStripMenuItem.Name = "componentesToolStripMenuItem";
       this.componentesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
       this.componentesToolStripMenuItem.Text = "Componentes";
@@ -285,6 +287,13 @@
       this.splitContainerToolStripMenuItem.Text = "SplitContainer";
       this.splitContainerToolStripMenuItem.Click += new System.EventHandler(this.splitContainerToolStripMenuItem_Click);
       // 
+      // tabControlToolStripMenuItem
+      // 
+      this.tabControlToolStripMenuItem.Name = "tabControlToolStripMenuItem";
+      this.tabControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.tabControlToolStripMenuItem.Text = "TabControl";
+      this.tabControlToolStripMenuItem.Click += new System.EventHandler(this.tabControlToolStripMenuItem_Click);
+      // 
       // nyi_menu
       // 
       this.nyi_menu.ContextMenuStrip = this.ctm_menu;
@@ -323,12 +332,12 @@
       this.tsi_fechar.Size = new System.Drawing.Size(108, 22);
       this.tsi_fechar.Text = "Fechar";
       // 
-      // tabControlToolStripMenuItem
+      // tableLayoutPanelToolStripMenuItem
       // 
-      this.tabControlToolStripMenuItem.Name = "tabControlToolStripMenuItem";
-      this.tabControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-      this.tabControlToolStripMenuItem.Text = "TabControl";
-      this.tabControlToolStripMenuItem.Click += new System.EventHandler(this.tabControlToolStripMenuItem_Click);
+      this.tableLayoutPanelToolStripMenuItem.Name = "tableLayoutPanelToolStripMenuItem";
+      this.tableLayoutPanelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.tableLayoutPanelToolStripMenuItem.Text = "TableLayoutPanel";
+      this.tableLayoutPanelToolStripMenuItem.Click += new System.EventHandler(this.tableLayoutPanelToolStripMenuItem_Click);
       // 
       // F_Principal
       // 
@@ -391,6 +400,7 @@
     private System.Windows.Forms.ToolStripMenuItem webBrowserToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem splitContainerToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem tabControlToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem tableLayoutPanelToolStripMenuItem;
   }
 }
 
