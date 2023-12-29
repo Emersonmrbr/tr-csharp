@@ -59,12 +59,13 @@
       this.tabControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.tableLayoutPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripContainerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.backGroundWorkerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.nyi_menu = new System.Windows.Forms.NotifyIcon(this.components);
       this.ctm_menu = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.tsi_Restaurar = new System.Windows.Forms.ToolStripMenuItem();
       this.tsi_mensagem = new System.Windows.Forms.ToolStripMenuItem();
       this.tsi_fechar = new System.Windows.Forms.ToolStripMenuItem();
-      this.backGroundWorkerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.timerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.mus_Menu.SuspendLayout();
       this.ctm_menu.SuspendLayout();
       this.SuspendLayout();
@@ -167,7 +168,8 @@
             this.tabControlToolStripMenuItem,
             this.tableLayoutPanelToolStripMenuItem,
             this.toolStripContainerToolStripMenuItem,
-            this.backGroundWorkerToolStripMenuItem});
+            this.backGroundWorkerToolStripMenuItem,
+            this.timerToolStripMenuItem});
       this.componentesToolStripMenuItem.Name = "componentesToolStripMenuItem";
       this.componentesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
       this.componentesToolStripMenuItem.Text = "Componentes";
@@ -312,6 +314,13 @@
       this.toolStripContainerToolStripMenuItem.Text = "ToolStripContainer";
       this.toolStripContainerToolStripMenuItem.Click += new System.EventHandler(this.toolStripContainerToolStripMenuItem_Click);
       // 
+      // backGroundWorkerToolStripMenuItem
+      // 
+      this.backGroundWorkerToolStripMenuItem.Name = "backGroundWorkerToolStripMenuItem";
+      this.backGroundWorkerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.backGroundWorkerToolStripMenuItem.Text = "BackGroundWorker";
+      this.backGroundWorkerToolStripMenuItem.Click += new System.EventHandler(this.backGroundWorkerToolStripMenuItem_Click);
+      // 
       // nyi_menu
       // 
       this.nyi_menu.ContextMenuStrip = this.ctm_menu;
@@ -350,12 +359,12 @@
       this.tsi_fechar.Size = new System.Drawing.Size(108, 22);
       this.tsi_fechar.Text = "Fechar";
       // 
-      // backGroundWorkerToolStripMenuItem
+      // timerToolStripMenuItem
       // 
-      this.backGroundWorkerToolStripMenuItem.Name = "backGroundWorkerToolStripMenuItem";
-      this.backGroundWorkerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-      this.backGroundWorkerToolStripMenuItem.Text = "BackGroundWorker";
-      this.backGroundWorkerToolStripMenuItem.Click += new System.EventHandler(this.backGroundWorkerToolStripMenuItem_Click);
+      this.timerToolStripMenuItem.Name = "timerToolStripMenuItem";
+      this.timerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.timerToolStripMenuItem.Text = "Timer";
+      this.timerToolStripMenuItem.Click += new System.EventHandler(this.timerToolStripMenuItem_Click);
       // 
       // F_Principal
       // 
@@ -421,6 +430,7 @@
     private System.Windows.Forms.ToolStripMenuItem tableLayoutPanelToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem toolStripContainerToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem backGroundWorkerToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem timerToolStripMenuItem;
   }
 }
 
