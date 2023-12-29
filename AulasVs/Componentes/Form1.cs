@@ -180,5 +180,11 @@ namespace Componentes
       F_TableLayoutPanel f_TableLayoutPanel = new F_TableLayoutPanel();
       f_TableLayoutPanel.ShowDialog();
     }
+
+    private void toolStripContainerToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      F_ToolStripContainer f_ToolStripContainer = new F_ToolStripContainer();
+      f_ToolStripContainer.ShowDialog();
+    }
   }
 }
