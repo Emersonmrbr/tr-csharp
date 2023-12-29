@@ -55,3 +55,4 @@ D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_TabControl.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_TableLayoutPanel.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_ToolStripContainer.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_Configuracoes.resources
+D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_BackGroundWorker.resources
