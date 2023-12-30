@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
       this.label8 = new System.Windows.Forms.Label();
       this.label7 = new System.Windows.Forms.Label();
       this.label6 = new System.Windows.Forms.Label();
@@ -206,12 +207,25 @@
       // 
       this.dgv_Usuarios.AllowUserToAddRows = false;
       this.dgv_Usuarios.AllowUserToDeleteRows = false;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dgv_Usuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
       this.dgv_Usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dgv_Usuarios.EnableHeadersVisualStyles = false;
       this.dgv_Usuarios.Location = new System.Drawing.Point(266, 30);
+      this.dgv_Usuarios.MultiSelect = false;
       this.dgv_Usuarios.Name = "dgv_Usuarios";
       this.dgv_Usuarios.ReadOnly = true;
+      this.dgv_Usuarios.RowHeadersVisible = false;
+      this.dgv_Usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.dgv_Usuarios.Size = new System.Drawing.Size(360, 195);
       this.dgv_Usuarios.TabIndex = 29;
+      this.dgv_Usuarios.SelectionChanged += new System.EventHandler(this.dgv_Usuarios_SelectionChanged);
       // 
       // btn_Novo
       // 
@@ -278,6 +292,7 @@
       this.Name = "F_GestaoUsuarios";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Gestao Usuarios";
+      this.Load += new System.EventHandler(this.F_GestaoUsuarios_Load);
       ((System.ComponentModel.ISupportInitialize)(this.nud_Nivel)).EndInit();
       this.panel1.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.dgv_Usuarios)).EndInit();

@@ -22,46 +22,45 @@ namespace Academia
 
     public static DataTable ObterTodosUsuarios()
     {
-      SQLiteDataAdapter da = null;
-      DataTable dt = new DataTable();
       try
       {
-        using (var cmd = ConexaoBanco().CreateCommand())
+        var ConexaoLocal = ConexaoBanco();
+        using (var cmd = ConexaoLocal.CreateCommand())
         {
           cmd.CommandText = "SELECT * FROM tb_usuarios";
-          da = new SQLiteDataAdapter(cmd.CommandText, ConexaoBanco());
+          var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
+          var dt = new DataTable();
           da.Fill(dt);
-          ConexaoBanco();
+          ConexaoLocal.Close();
           return dt;
         }
       }
       catch (Exception ex)
       {
-        ConexaoBanco();
         throw ex;
       }
     }
     public static DataTable Consulta(string sql)
     {
-      SQLiteDataAdapter da = null;
-      DataTable dt = new DataTable();
       try
       {
-        using (var cmd = ConexaoBanco().CreateCommand())
+        var ConexaoLocal = ConexaoBanco();
+        using (var cmd = ConexaoLocal.CreateCommand())
         {
           cmd.CommandText = sql;
-          da = new SQLiteDataAdapter(cmd.CommandText, ConexaoBanco());
+          var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
+          var dt = new DataTable();
           da.Fill(dt);
-          ConexaoBanco();
+          ConexaoLocal.Close();
           return dt;
         }
       }
       catch (Exception ex)
       {
-        ConexaoBanco();
         throw ex;
       }
     }
+
     //Funçoes do FORM F_NovoUsuario
 
     public static void NovoUsuario(Usuario usuario)
@@ -69,40 +68,84 @@ namespace Academia
       if (ExisteApelido(usuario)) { MessageBox.Show("Apelido já existe"); return; }
       try
       {
-        var cmd = ConexaoBanco().CreateCommand();
-        cmd.CommandText = "INSERT INTO tb_usuarios (T_NOMEUSUARIO,T_APELIDOUSUARIO, T_SENHAUSUARIO,T_STATUSUSUARIO,N_NIVELUSUARIO) VALUES (@nome, @apelido, @senha, @status, @nivel)";
-        cmd.Parameters.AddWithValue("@nome", usuario.T_NOMEUSUARIO);
-        cmd.Parameters.AddWithValue("@apelido", usuario.T_APELIDOUSUARIO);
-        cmd.Parameters.AddWithValue("@senha", usuario.T_SENHAUSUARIO);
-        cmd.Parameters.AddWithValue("@status", usuario.T_STATUSUSUARIO);
-        cmd.Parameters.AddWithValue("@nivel", usuario.N_NIVELUSUARIO);
-        cmd.ExecuteNonQuery();
-        MessageBox.Show("Novo usuário inserido com sucesso");
-        ConexaoBanco().Close();
+        var ConexaoLocal = ConexaoBanco();
+        using (var cmd = ConexaoLocal.CreateCommand())
+        {
+          cmd.CommandText = "INSERT INTO tb_usuarios (T_NOMEUSUARIO,T_APELIDOUSUARIO, T_SENHAUSUARIO,T_STATUSUSUARIO,N_NIVELUSUARIO) VALUES (@nome, @apelido, @senha, @status, @nivel)";
+          cmd.Parameters.AddWithValue("@nome", usuario.T_NOMEUSUARIO);
+          cmd.Parameters.AddWithValue("@apelido", usuario.T_APELIDOUSUARIO);
+          cmd.Parameters.AddWithValue("@senha", usuario.T_SENHAUSUARIO);
+          cmd.Parameters.AddWithValue("@status", usuario.T_STATUSUSUARIO);
+          cmd.Parameters.AddWithValue("@nivel", usuario.N_NIVELUSUARIO);
+          cmd.ExecuteNonQuery();
+          MessageBox.Show("Novo usuário inserido com sucesso");
+          ConexaoLocal.Close();
+        }
       }
       catch
       {
         MessageBox.Show("Erro ao gravar novo usuário");
-        ConexaoBanco().Close();
       }
     }
 
     public static bool ExisteApelido(Usuario usuario)
     {
-      bool resultado;
-      SQLiteDataAdapter da = null;
-      DataTable dt = new DataTable();
-
-      var cmd = ConexaoBanco().CreateCommand();
-      cmd.CommandText = "SELECT T_APELIDOUSUARIO FROM tb_usuarios WHERE T_APELIDOUSUARIO= '" + usuario.T_APELIDOUSUARIO + "'";
-      da = new SQLiteDataAdapter(cmd.CommandText, ConexaoBanco());
-      da.Fill(dt);
-      if (dt.Rows.Count > 0) { resultado = true; } else { resultado = false; }
-
-      return resultado;
+      var ConexaoLocal = ConexaoBanco();
+      using (var cmd = ConexaoLocal.CreateCommand())
+      {
+        cmd.CommandText = "SELECT T_APELIDOUSUARIO FROM tb_usuarios WHERE T_APELIDOUSUARIO= '" + usuario.T_APELIDOUSUARIO + "'";
+        cmd.Parameters.AddWithValue("@apelido", usuario.T_APELIDOUSUARIO);
+        var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
+        var dt = new DataTable();
+        da.Fill(dt);
+        ConexaoLocal.Close();
+        return dt.Rows.Count > 0;
+      }
     }
-
     //FIM - Funçoes do FORM F_NovoUsuario
+
+    //Funções do FORM F_GestaoUsuarios
+    public static DataTable ObterTodosUsuariosIdNome()
+    {
+      try
+      {
+        var ConexaoLocal = ConexaoBanco();
+        using (var cmd = ConexaoLocal.CreateCommand())
+        {
+          cmd.CommandText = "SELECT N_IDUSUARIO as 'ID', T_NOMEUSUARIO as 'Nome' FROM tb_usuarios";
+          var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
+          var dt = new DataTable();
+          da.Fill(dt);
+          ConexaoLocal.Close();
+          return dt;
+        }
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+    public static DataTable ObterDadosUsuario(string id)
+    {
+      try
+      {
+        var ConexaoLocal = ConexaoBanco();
+        using (var cmd = ConexaoLocal.CreateCommand())
+        {
+          cmd.CommandText = "SELECT * FROM tb_usuarios WHERE N_IDUSUARIO='" + id + "'";
+          var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
+          var dt = new DataTable();
+          da.Fill(dt);
+          ConexaoLocal.Close();
+          return dt;
+        }
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+    //FIM - Funções do FORM F_GestaoUsuarios
 
   }
 }

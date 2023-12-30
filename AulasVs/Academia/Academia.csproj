@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco.cs" />
+    <Compile Include="BancoGPT.cs" />
     <Compile Include="F_GestaoUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
