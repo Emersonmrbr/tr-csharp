@@ -67,6 +67,7 @@
       this.tsi_Restaurar = new System.Windows.Forms.ToolStripMenuItem();
       this.tsi_mensagem = new System.Windows.Forms.ToolStripMenuItem();
       this.tsi_fechar = new System.Windows.Forms.ToolStripMenuItem();
+      this.sQLiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.mus_Menu.SuspendLayout();
       this.ctm_menu.SuspendLayout();
       this.SuspendLayout();
@@ -332,6 +333,8 @@
       // 
       // sQToolStripMenuItem
       // 
+      this.sQToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sQLiteToolStripMenuItem});
       this.sQToolStripMenuItem.Name = "sQToolStripMenuItem";
       this.sQToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
       this.sQToolStripMenuItem.Text = "SQLite";
@@ -373,6 +376,13 @@
       this.tsi_fechar.Name = "tsi_fechar";
       this.tsi_fechar.Size = new System.Drawing.Size(108, 22);
       this.tsi_fechar.Text = "Fechar";
+      // 
+      // sQLiteToolStripMenuItem
+      // 
+      this.sQLiteToolStripMenuItem.Name = "sQLiteToolStripMenuItem";
+      this.sQLiteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.sQLiteToolStripMenuItem.Text = "SQLite";
+      this.sQLiteToolStripMenuItem.Click += new System.EventHandler(this.sQLiteToolStripMenuItem_Click);
       // 
       // F_Principal
       // 
@@ -440,6 +450,7 @@
     private System.Windows.Forms.ToolStripMenuItem backGroundWorkerToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem timerToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem sQToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem sQLiteToolStripMenuItem;
   }
 }
 

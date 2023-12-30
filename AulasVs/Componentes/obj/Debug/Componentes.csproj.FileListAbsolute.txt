@@ -57,3 +57,12 @@ D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_ToolStripContainer.reso
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_Configuracoes.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_BackGroundWorker.resources
 D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.F_Timer.resources
+D:\tr-csharp\AulasVs\Componentes\bin\Debug\EntityFramework.dll
+D:\tr-csharp\AulasVs\Componentes\bin\Debug\EntityFramework.SqlServer.dll
+D:\tr-csharp\AulasVs\Componentes\bin\Debug\System.Data.SQLite.dll
+D:\tr-csharp\AulasVs\Componentes\bin\Debug\System.Data.SQLite.EF6.dll
+D:\tr-csharp\AulasVs\Componentes\bin\Debug\System.Data.SQLite.Linq.dll
+D:\tr-csharp\AulasVs\Componentes\bin\Debug\EntityFramework.xml
+D:\tr-csharp\AulasVs\Componentes\bin\Debug\EntityFramework.SqlServer.xml
+D:\tr-csharp\AulasVs\Componentes\bin\Debug\System.Data.SQLite.xml
+D:\tr-csharp\AulasVs\Componentes\obj\Debug\Componentes.csproj.CopyComplete
