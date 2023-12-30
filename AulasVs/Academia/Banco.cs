@@ -62,6 +62,47 @@ namespace Academia
         throw ex;
       }
     }
+    //Funçoes do FORM F_NovoUsuario
+
+    public static void NovoUsuario(Usuario usuario)
+    {
+      if (ExisteApelido(usuario)) { MessageBox.Show("Apelido já existe"); return; }
+      try
+      {
+        var cmd = ConexaoBanco().CreateCommand();
+        cmd.CommandText = "INSERT INTO tb_usuarios (T_NOMEUSUARIO,T_APELIDOUSUARIO, T_SENHAUSUARIO,T_STATUSUSUARIO,N_NIVELUSUARIO) VALUES (@nome, @apelido, @senha, @status, @nivel)";
+        cmd.Parameters.AddWithValue("@nome", usuario.T_NOMEUSUARIO);
+        cmd.Parameters.AddWithValue("@apelido", usuario.T_APELIDOUSUARIO);
+        cmd.Parameters.AddWithValue("@senha", usuario.T_SENHAUSUARIO);
+        cmd.Parameters.AddWithValue("@status", usuario.T_STATUSUSUARIO);
+        cmd.Parameters.AddWithValue("@nivel", usuario.N_NIVELUSUARIO);
+        cmd.ExecuteNonQuery();
+        MessageBox.Show("Novo usuário inserido com sucesso");
+        ConexaoBanco().Close();
+      }
+      catch
+      {
+        MessageBox.Show("Erro ao gravar novo usuário");
+        ConexaoBanco().Close();
+      }
+    }
+
+    public static bool ExisteApelido(Usuario usuario)
+    {
+      bool resultado;
+      SQLiteDataAdapter da = null;
+      DataTable dt = new DataTable();
+
+      var cmd = ConexaoBanco().CreateCommand();
+      cmd.CommandText = "SELECT T_APELIDOUSUARIO FROM tb_usuarios WHERE T_APELIDOUSUARIO= '" + usuario.T_APELIDOUSUARIO + "'";
+      da = new SQLiteDataAdapter(cmd.CommandText, ConexaoBanco());
+      da.Fill(dt);
+      if (dt.Rows.Count > 0) { resultado = true; } else { resultado = false; }
+
+      return resultado;
+    }
+
+    //FIM - Funçoes do FORM F_NovoUsuario
 
   }
 }

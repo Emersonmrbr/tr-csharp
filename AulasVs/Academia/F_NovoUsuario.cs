@@ -26,6 +26,32 @@ namespace Academia
       usuario.N_NIVELUSUARIO = Convert.ToInt32(Math.Round(nud_Nivel.Value, 0));
       usuario.T_STATUSUSUARIO = cob_Status.Text;
 
+      Banco.NovoUsuario(usuario);
+    }
+
+    private void btn_Fechar_Click(object sender, EventArgs e)
+    {
+      Close();
+    }
+
+    private void btn_Cancelar_Click(object sender, EventArgs e)
+    {
+      ttb_Nome.Clear();
+      ttb_Apelido.Clear();
+      ttb_Senha.Clear();
+      cob_Status.Text = string.Empty;
+      nud_Nivel.Value = 0;
+      ttb_Nome.Focus();
+    }
+
+    private void btn_Novo_Click(object sender, EventArgs e)
+    {
+      ttb_Nome.Clear();
+      ttb_Apelido.Clear();
+      ttb_Senha.Clear();
+      cob_Status.Text = string.Empty;
+      nud_Nivel.Value = 0;
+      ttb_Nome.Focus();
     }
   }
 }

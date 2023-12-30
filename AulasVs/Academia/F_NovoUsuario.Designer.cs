@@ -68,6 +68,7 @@
       // 
       this.ttb_Senha.Location = new System.Drawing.Point(393, 22);
       this.ttb_Senha.Name = "ttb_Senha";
+      this.ttb_Senha.PasswordChar = '#';
       this.ttb_Senha.Size = new System.Drawing.Size(121, 20);
       this.ttb_Senha.TabIndex = 2;
       // 
@@ -187,6 +188,7 @@
       this.btn_Novo.TabIndex = 0;
       this.btn_Novo.Text = "Novo";
       this.btn_Novo.UseVisualStyleBackColor = true;
+      this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
       // 
       // btn_Salvar
       // 
@@ -206,6 +208,7 @@
       this.btn_Cancelar.TabIndex = 2;
       this.btn_Cancelar.Text = "Cancelar";
       this.btn_Cancelar.UseVisualStyleBackColor = true;
+      this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
       // 
       // btn_Fechar
       // 
@@ -215,6 +218,7 @@
       this.btn_Fechar.TabIndex = 3;
       this.btn_Fechar.Text = "Fechar";
       this.btn_Fechar.UseVisualStyleBackColor = true;
+      this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
       // 
       // F_NovoUsuario
       // 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Academia
 {
-  internal class Usuario
+  class Usuario
   {
     public int N_IDUSUARIO;
     public string T_NOMEUSUARIO;
