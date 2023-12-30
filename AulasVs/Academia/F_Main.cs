@@ -33,5 +33,71 @@ namespace Academia
       Globais.nivel = 0;
       Globais.logado = false;
     }
+
+    private void bancoDeToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (Globais.logado)
+      {
+        if (Globais.nivel >= 2)
+        {
+        }
+        else
+        {
+          MessageBox.Show("Acesso negado");
+        }
+      }
+      else
+      {
+        MessageBox.Show("É necessário estar logado");
+      }
+    }
+
+    private void novoUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (Globais.logado)
+      {
+        if (Globais.nivel >= 1)
+        {
+        }
+        else
+        {
+          MessageBox.Show("Acesso negado");
+        }
+      }
+      else
+      {
+        MessageBox.Show("É necessário estar logado");
+      }
+    }
+
+    private void gestãoDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (Globais.logado)
+      {
+        if (Globais.nivel >= 1)
+        {
+        }
+        else
+        {
+          MessageBox.Show("Acesso negado");
+        }
+      }
+      else
+      {
+        MessageBox.Show("É necessário estar logado");
+      }
+    }
+
+    private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (Globais.logado)
+      {
+
+      }
+      else
+      {
+        MessageBox.Show("É necessário estar logado");
+      }
+    }
   }
 }
