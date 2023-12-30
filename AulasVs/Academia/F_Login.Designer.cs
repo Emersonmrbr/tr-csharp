@@ -51,6 +51,7 @@
       this.ttb_ApelidoUsuario.Name = "ttb_ApelidoUsuario";
       this.ttb_ApelidoUsuario.Size = new System.Drawing.Size(199, 20);
       this.ttb_ApelidoUsuario.TabIndex = 1;
+      this.ttb_ApelidoUsuario.Text = "emersonmrbr";
       // 
       // label2
       // 
@@ -68,6 +69,7 @@
       this.ttb_Senha.PasswordChar = '#';
       this.ttb_Senha.Size = new System.Drawing.Size(199, 20);
       this.ttb_Senha.TabIndex = 3;
+      this.ttb_Senha.Text = "1234";
       // 
       // btn_Logar
       // 
