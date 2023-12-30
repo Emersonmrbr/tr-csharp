@@ -17,3 +17,4 @@ D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.csproj.CoreCompileInputs.cache
 D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.csproj.CopyComplete
 D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.exe
 D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.pdb
+D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.F_Login.resources
