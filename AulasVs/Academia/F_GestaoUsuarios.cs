@@ -47,5 +47,39 @@ namespace Academia
 
       }
     }
+
+    private void btn_Novo_Click(object sender, EventArgs e)
+    {
+      F_NovoUsuario f_NovoUsuario = new F_NovoUsuario();
+      f_NovoUsuario.ShowDialog();
+      dgv_Usuarios.DataSource = Banco.ObterTodosUsuariosIdNome();
+    }
+
+    private void btn_Salvar_Click(object sender, EventArgs e)
+    {
+      int linha = dgv_Usuarios.SelectedRows[0].Index;
+      Usuario usuario = new Usuario
+      {
+        N_IDUSUARIO = Convert.ToInt32(ttb_ID.Text),
+        T_NOMEUSUARIO = ttb_Nome.Text,
+        T_APELIDOUSUARIO = ttb_Apelido.Text,
+        T_SENHAUSUARIO = ttb_Senha.Text,
+        T_STATUSUSUARIO = cob_Status.Text,
+        N_NIVELUSUARIO = Convert.ToInt32(Math.Round(nud_Nivel.Value, 0)),
+      };
+      Banco.AtualizarUsuario(usuario);
+      dgv_Usuarios.DataSource = Banco.ObterTodosUsuariosIdNome();
+      dgv_Usuarios.CurrentCell = dgv_Usuarios[0, linha];
+    }
+
+    private void btn_Excluir_Click(object sender, EventArgs e)
+    {
+      DialogResult resultado = MessageBox.Show("Tem serteza que deseja excluir?", "Excluir dados", MessageBoxButtons.YesNo);
+      if (resultado == DialogResult.Yes)
+      {
+        Banco.DeletarUsuario(ttb_ID.Text);
+        dgv_Usuarios.Rows.Remove(dgv_Usuarios.CurrentRow);
+      }
+    }
   }
 }

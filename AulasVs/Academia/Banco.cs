@@ -145,6 +145,44 @@ namespace Academia
         throw ex;
       }
     }
+    public static void AtualizarUsuario(Usuario usuario)
+    {
+      try
+      {
+        var ConexaoLocal = ConexaoBanco();
+        using (var cmd = ConexaoLocal.CreateCommand())
+        {
+          cmd.CommandText = "UPDATE tb_usuarios SET T_NOMEUSUARIO='" + usuario.T_NOMEUSUARIO + "', T_APELIDOUSUARIO='" + usuario.T_APELIDOUSUARIO + "', T_SENHAUSUARIO='" + usuario.T_SENHAUSUARIO + "',  T_STATUSUSUARIO='" + usuario.T_STATUSUSUARIO + "', N_NIVELUSUARIO=" + usuario.N_NIVELUSUARIO + " WHERE N_IDUSUARIO=" + usuario.N_IDUSUARIO;
+          var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
+          var dt = new DataTable();
+          cmd.ExecuteNonQuery();
+          ConexaoLocal.Close();
+        }
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+    public static void DeletarUsuario(string id)
+    {
+      try
+      {
+        var ConexaoLocal = ConexaoBanco();
+        using (var cmd = ConexaoLocal.CreateCommand())
+        {
+          cmd.CommandText = "DELETE FROM tb_usuarios WHERE N_IDUSUARIO=" + id;
+          var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
+          var dt = new DataTable();
+          cmd.ExecuteNonQuery();
+          ConexaoLocal.Close();
+        }
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
     //FIM - Funções do FORM F_GestaoUsuarios
 
   }
