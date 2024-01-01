@@ -15,7 +15,7 @@ namespace Academia
     private static SQLiteConnection conexao;
     private static SQLiteConnection ConexaoBanco()
     {
-      conexao = new SQLiteConnection("Data Source = D:\\tr-csharp\\AulasVs\\Academia\\db\\db_academia");
+      conexao = new SQLiteConnection("Data Source =" + Globais.caminhoBanco + Globais.nomeBanco);
       conexao.Open();
       return conexao;
     }
@@ -28,26 +28,6 @@ namespace Academia
         using (var cmd = ConexaoLocal.CreateCommand())
         {
           cmd.CommandText = "SELECT * FROM tb_usuarios";
-          var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
-          var dt = new DataTable();
-          da.Fill(dt);
-          ConexaoLocal.Close();
-          return dt;
-        }
-      }
-      catch (Exception ex)
-      {
-        throw ex;
-      }
-    }
-    public static DataTable Consulta(string sql)
-    {
-      try
-      {
-        var ConexaoLocal = ConexaoBanco();
-        using (var cmd = ConexaoLocal.CreateCommand())
-        {
-          cmd.CommandText = sql;
           var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
           var dt = new DataTable();
           da.Fill(dt);
@@ -184,6 +164,57 @@ namespace Academia
       }
     }
     //FIM - Funções do FORM F_GestaoUsuarios
+
+    //Funçoes genericas
+    public static DataTable Dql(string q)//Data Query Language (SELECT)
+    {
+      try
+      {
+        var ConexaoLocal = ConexaoBanco();
+        using (var cmd = ConexaoLocal.CreateCommand())
+        {
+          cmd.CommandText = q;
+          var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
+          var dt = new DataTable();
+          da.Fill(dt);
+          ConexaoLocal.Close();
+          return dt;
+        }
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+    public static void Dml(string q, string msgOK = null, string msgERRO = null)//Data Manipulation Language (INSERT, DELETE e UPDATE)
+    {
+      try
+      {
+        var ConexaoLocal = ConexaoBanco();
+        using (var cmd = ConexaoLocal.CreateCommand())
+        {
+          cmd.CommandText = q;
+          var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
+          var dt = new DataTable();
+          cmd.ExecuteNonQuery();
+          ConexaoLocal.Close();
+          if (msgOK != null)
+          {
+            MessageBox.Show(msgOK);
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        if (msgERRO != null)
+        {
+          MessageBox.Show(msgERRO + "\n" + ex.Message);
+        }
+        throw ex;
+      }
+    }
+
+    //FIM - Funçoes genericas
 
   }
 }

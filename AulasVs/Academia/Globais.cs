@@ -11,6 +11,9 @@ namespace Academia
     public static string versao = "1,0";
     public static bool logado = false;
     public static int nivel = 0;//0 = Básico, 1 = Gerente, 2 = Master
+    public static string caminho = System.Environment.CurrentDirectory;
+    public static string nomeBanco = "db_academia";
+    public static string caminhoBanco = caminho + @"\db\";
     /*
     tb_usuarios
     N_IDUSUARIO, T_NOMEUSUARIO, T_APELIDOUSUARIO, T_SENHAUSUARIO,  T_STATUSUSUARIO, N_NIVELUSUARIO
