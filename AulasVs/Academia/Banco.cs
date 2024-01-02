@@ -41,6 +41,28 @@ namespace Academia
       }
     }
 
+    //public static DataTable Consulta(string sql)
+    //{
+    //  try
+    //  {
+    //    var ConexaoLocal = ConexaoBanco();
+    //    using (var cmd = ConexaoLocal.CreateCommand())
+    //    {
+    //      cmd.CommandText = sql;
+    //      var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
+    //      var dt = new DataTable();
+    //      da.Fill(dt);
+    //      ConexaoLocal.Close();
+    //      return dt;
+    //    }
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //    throw ex;
+    //  }
+    //}
+
+
     //Funçoes do FORM F_NovoUsuario
 
     public static void NovoUsuario(Usuario usuario)
@@ -166,7 +188,7 @@ namespace Academia
     //FIM - Funções do FORM F_GestaoUsuarios
 
     //Funçoes genericas
-    public static DataTable Dql(string q)//Data Query Language (SELECT)
+    public static DataTable DQL(string q)//Data Query Language (SELECT)
     {
       try
       {
@@ -186,7 +208,7 @@ namespace Academia
         throw ex;
       }
     }
-    public static void Dml(string q, string msgOK = null, string msgERRO = null)//Data Manipulation Language (INSERT, DELETE e UPDATE)
+    public static void DML(string q, string msgOK = null, string msgERRO = null)//Data Manipulation Language (INSERT, DELETE e UPDATE)
     {
       try
       {
@@ -213,7 +235,6 @@ namespace Academia
         throw ex;
       }
     }
-
     //FIM - Funçoes genericas
 
   }

@@ -37,7 +37,7 @@ namespace Academia
         return;
       }
       string sql = "SELECT * FROM tb_usuarios WHERE T_APELIDOUSUARIO = '" + usuario + "' AND T_SENHAUSUARIO = '" + senha + "'";
-      dt = Banco.Consulta(sql);
+      dt = Banco.DQL(sql);
       if (dt.Rows.Count > 0)
       {
         f_Main.lbl_Acesso.Text = dt.Rows[0].ItemArray[5].ToString();//Uma maneira de fazer, buscando nivel do usuário

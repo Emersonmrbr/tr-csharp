@@ -18,6 +18,24 @@ namespace Academia
       F_Login f_Login = new F_Login(this);
       f_Login.ShowDialog();
     }
+    private void AbreFormulario(int nivel, Form form)
+    {
+      if (Globais.logado)
+      {
+        if (Globais.nivel >= nivel)
+        {
+          form.ShowDialog();
+        }
+        else
+        {
+          MessageBox.Show("Acesso negado");
+        }
+      }
+      else
+      {
+        MessageBox.Show("É necessário estar logado");
+      }
+    }
 
     private void logonToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -36,72 +54,30 @@ namespace Academia
 
     private void bancoDeToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      if (Globais.logado)
-      {
-        if (Globais.nivel >= 2)
-        {
-        }
-        else
-        {
-          MessageBox.Show("Acesso negado");
-        }
-      }
-      else
-      {
-        MessageBox.Show("É necessário estar logado");
-      }
+      //AbreFormulario();
     }
 
     private void novoUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      if (Globais.logado)
-      {
-        if (Globais.nivel >= 1)
-        {
-          F_NovoUsuario f_NovoUsuario = new F_NovoUsuario();
-          f_NovoUsuario.ShowDialog();
-        }
-        else
-        {
-          MessageBox.Show("Acesso negado");
-        }
-      }
-      else
-      {
-        MessageBox.Show("É necessário estar logado");
-      }
+      F_NovoUsuario f_NovoUsuario = new F_NovoUsuario();
+      AbreFormulario(1, f_NovoUsuario);
     }
 
     private void gestãoDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      if (Globais.logado)
-      {
-        if (Globais.nivel >= 1)
-        {
-          F_GestaoUsuarios f_GestaoUsuarios = new F_GestaoUsuarios();
-          f_GestaoUsuarios.ShowDialog();
-        }
-        else
-        {
-          MessageBox.Show("Acesso negado");
-        }
-      }
-      else
-      {
-        MessageBox.Show("É necessário estar logado");
-      }
+      F_GestaoUsuarios f_GestaoUsuarios = new F_GestaoUsuarios();
+      AbreFormulario(1, f_GestaoUsuarios);
     }
 
     private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      if (Globais.logado)
-      {
+      //AbreFormulario()
+    }
 
-      }
-      else
-      {
-        MessageBox.Show("É necessário estar logado");
-      }
+    private void horáriosToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      F_Horarios f_Horarios = new F_Horarios();
+      AbreFormulario(2, f_Horarios);
     }
   }
 }
