@@ -12,6 +12,7 @@ namespace Academia
 {
   public partial class F_GestaoTurmas : Form
   {
+    string idSelecionado = string.Empty;
     public F_GestaoTurmas()
     {
       InitializeComponent();
@@ -79,6 +80,26 @@ namespace Academia
       cbb_Horario.DataSource = Banco.DQL(queryHorario);
       cbb_Horario.DisplayMember = "T_DSCHORARIO";
       cbb_Horario.ValueMember = "N_IDHORARIO";
+    }
+
+    private void dgv_Turmas_SelectionChanged(object sender, EventArgs e)
+    {
+      DataGridView dgv = (DataGridView)sender;
+      if (dgv.SelectedRows.Count > 0)
+      {
+        string id = dgv.SelectedRows[0].Cells["ID"].Value.ToString();
+        string selectQuery = $"SELECT * FROM tb_turmas WHERE N_IDTURMA={id}";
+
+        DataTable dt = Banco.DQL(selectQuery);
+        if (dt.Rows.Count > 0)
+        {
+          ttb_Nome.Text = dt.Rows[0].Field<string>("T_DSCTURMA");
+          cbb_Professor.SelectedValue = dt.Rows[0].Field<long>("N_IDPROFESSOR").ToString();
+          nud_MaximoAluno.Value = dt.Rows[0].Field<long>("N_MAXALUNOS");
+          cbb_Status.SelectedValue = dt.Rows[0].Field<string>("T_STATUS");
+          cbb_Horario.SelectedValue = dt.Rows[0].Field<long>("N_IDHORARIO").ToString();
+        }
+      }
     }
   }
 }
