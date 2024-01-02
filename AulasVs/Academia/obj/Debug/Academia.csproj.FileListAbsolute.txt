@@ -22,3 +22,4 @@ D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.F_NovoUsuario.resources
 D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.F_GestaoUsuarios.resources
 D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.F_Horarios.resources
 D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.F_Professores.resources
+D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.F_GestaoTurmas.resources

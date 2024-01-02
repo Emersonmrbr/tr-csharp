@@ -85,5 +85,11 @@ namespace Academia
       F_Professores f_Professores = new F_Professores();
       AbreFormulario(2, f_Professores);
     }
+
+    private void turmasToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      F_GestaoTurmas f_GestaoTurmas = new F_GestaoTurmas();
+      AbreFormulario(2, f_GestaoTurmas);
+    }
   }
 }
