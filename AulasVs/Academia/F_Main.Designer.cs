@@ -33,7 +33,6 @@
       this.label2 = new System.Windows.Forms.Label();
       this.lbl_Acesso = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
-      this.img_Logado = new System.Windows.Forms.PictureBox();
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
       this.aLUNOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,9 +46,11 @@
       this.logonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.logoffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.horáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.professoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.img_Logado = new System.Windows.Forms.PictureBox();
       this.panel1.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.img_Logado)).BeginInit();
       this.menuStrip1.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.img_Logado)).BeginInit();
       this.SuspendLayout();
       // 
       // panel1
@@ -105,16 +106,6 @@
       this.label1.TabIndex = 1;
       this.label1.Text = "Acesso:";
       this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      // 
-      // img_Logado
-      // 
-      this.img_Logado.Image = global::Academia.Properties.Resources.ledVermelho;
-      this.img_Logado.Location = new System.Drawing.Point(0, 1);
-      this.img_Logado.Name = "img_Logado";
-      this.img_Logado.Size = new System.Drawing.Size(30, 30);
-      this.img_Logado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-      this.img_Logado.TabIndex = 0;
-      this.img_Logado.TabStop = false;
       // 
       // menuStrip1
       // 
@@ -177,7 +168,8 @@
       // 
       this.mANUTENÇÃOToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bancoDeToolStripMenuItem,
-            this.horáriosToolStripMenuItem});
+            this.horáriosToolStripMenuItem,
+            this.professoresToolStripMenuItem});
       this.mANUTENÇÃOToolStripMenuItem.Name = "mANUTENÇÃOToolStripMenuItem";
       this.mANUTENÇÃOToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
       this.mANUTENÇÃOToolStripMenuItem.Text = "MANUTENÇÃO";
@@ -201,14 +193,14 @@
       // logonToolStripMenuItem
       // 
       this.logonToolStripMenuItem.Name = "logonToolStripMenuItem";
-      this.logonToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+      this.logonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.logonToolStripMenuItem.Text = "Logon";
       this.logonToolStripMenuItem.Click += new System.EventHandler(this.logonToolStripMenuItem_Click);
       // 
       // logoffToolStripMenuItem
       // 
       this.logoffToolStripMenuItem.Name = "logoffToolStripMenuItem";
-      this.logoffToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+      this.logoffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.logoffToolStripMenuItem.Text = "Logoff";
       this.logoffToolStripMenuItem.Click += new System.EventHandler(this.logoffToolStripMenuItem_Click);
       // 
@@ -218,6 +210,23 @@
       this.horáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.horáriosToolStripMenuItem.Text = "Horários";
       this.horáriosToolStripMenuItem.Click += new System.EventHandler(this.horáriosToolStripMenuItem_Click);
+      // 
+      // professoresToolStripMenuItem
+      // 
+      this.professoresToolStripMenuItem.Name = "professoresToolStripMenuItem";
+      this.professoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.professoresToolStripMenuItem.Text = "Professores";
+      this.professoresToolStripMenuItem.Click += new System.EventHandler(this.professoresToolStripMenuItem_Click);
+      // 
+      // img_Logado
+      // 
+      this.img_Logado.Image = global::Academia.Properties.Resources.ledVermelho;
+      this.img_Logado.Location = new System.Drawing.Point(0, 1);
+      this.img_Logado.Name = "img_Logado";
+      this.img_Logado.Size = new System.Drawing.Size(30, 30);
+      this.img_Logado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+      this.img_Logado.TabIndex = 0;
+      this.img_Logado.TabStop = false;
       // 
       // F_Main
       // 
@@ -232,9 +241,9 @@
       this.Text = "Academia - v1.0";
       this.panel1.ResumeLayout(false);
       this.panel1.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.img_Logado)).EndInit();
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.img_Logado)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -261,6 +270,7 @@
     private System.Windows.Forms.ToolStripMenuItem gestãoDeUsuáriosToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem bancoDeToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem horáriosToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem professoresToolStripMenuItem;
   }
 }
 

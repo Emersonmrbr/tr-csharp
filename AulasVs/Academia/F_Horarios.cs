@@ -52,7 +52,6 @@ namespace Academia
           mtb_Horario.Text = dt.Rows[0].Field<string>("T_DSCHORARIO");
         }
       }
-
     }
 
     private void btn_Fechar_Click(object sender, EventArgs e)
