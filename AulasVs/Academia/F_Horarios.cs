@@ -19,39 +19,40 @@ namespace Academia
 
     private void F_Horarios_Load(object sender, EventArgs e)
     {
-      string query = @"
-        SELECT
-          N_IDHORARIO as 'ID',
-          T_DSCHORARIO as 'Horário'
-        FROM
-          tb_horarios
-        ORDER BY
-          T_DSCHORARIO
-      ";
-      dgv_Horario.DataSource = Banco.DQL(query);
-      dgv_Horario.Columns[0].Width = 60;
-      dgv_Horario.Columns[1].Width = 250;
+      string selectQuery = @"
+    SELECT
+        N_IDHORARIO as 'ID',
+        T_DSCHORARIO as 'Horário'
+    FROM
+        tb_horarios
+    ORDER BY
+        T_DSCHORARIO
+    ";
+
+      dgv_Horario.DataSource = Banco.DQL(selectQuery);
+      dgv_Horario.Columns["ID"].Width = 60;
+      dgv_Horario.Columns["Horário"].Width = 250;
+
     }
 
     private void dgv_Horario_SelectionChanged(object sender, EventArgs e)
     {
       DataGridView dgv = (DataGridView)sender;
-      int linhas = dgv.SelectedRows.Count;
-      if (linhas > 0)
+
+      if (dgv.SelectedRows.Count > 0)
       {
-        DataTable dt = new DataTable();
-        string id = dgv.SelectedRows[0].Cells[0].Value.ToString();
-        string query = @"
-          SELECT
-            *
-         FROM
-          tb_horarios
-        WHERE
-          N_IDHORARIO=" + id;
-        dt = Banco.DQL(query);
-        ttb_ID.Text = dt.Rows[0].Field<Int64>("N_IDHORARIO").ToString();
-        mtb_Horario.Text = dt.Rows[0].Field<string>("T_DSCHORARIO");
+        string id = dgv.SelectedRows[0].Cells["ID"].Value.ToString();
+        string query = $"SELECT * FROM tb_horarios WHERE N_IDHORARIO={id}";
+
+        DataTable dt = Banco.DQL(query);
+
+        if (dt.Rows.Count > 0)
+        {
+          ttb_ID.Text = dt.Rows[0].Field<long>("N_IDHORARIO").ToString();
+          mtb_Horario.Text = dt.Rows[0].Field<string>("T_DSCHORARIO");
+        }
       }
+
     }
 
     private void btn_Fechar_Click(object sender, EventArgs e)
@@ -66,19 +67,23 @@ namespace Academia
       mtb_Horario.Focus();
     }
 
+
     private void btn_Salvar_Click(object sender, EventArgs e)
     {
       string query;
-      if (ttb_ID.Text == string.Empty)
+
+      if (string.IsNullOrEmpty(ttb_ID.Text))
       {
-        query = "INSERT INTO tb_horarios (T_DSCHORARIO) VALUES ('" + mtb_Horario.Text + "')";
+        query = $"INSERT INTO tb_horarios (T_DSCHORARIO) VALUES ('{mtb_Horario.Text}')";
       }
       else
       {
-        query = "UPDATE tb_horarios SET T_DSCHORARIO='" + mtb_Horario.Text + "' WHERE N_IDHORARIO=" + ttb_ID.Text;
+        query = $"UPDATE tb_horarios SET T_DSCHORARIO='{mtb_Horario.Text}' WHERE N_IDHORARIO={ttb_ID.Text}";
       }
+
       Banco.DML(query);
-      query = @"
+
+      string selectQuery = @"
         SELECT
           N_IDHORARIO as 'ID',
           T_DSCHORARIO as 'Horário'
@@ -86,28 +91,44 @@ namespace Academia
           tb_horarios
         ORDER BY
           T_DSCHORARIO
-      ";
-      dgv_Horario.DataSource = Banco.DQL(query);
+    ";
+
+      dgv_Horario.DataSource = Banco.DQL(selectQuery);
     }
+
 
     private void btn_Excluir_Click(object sender, EventArgs e)
     {
-      DialogResult resposta = MessageBox.Show("Deseja exluir dado", "Excluir?", MessageBoxButtons.YesNo);
+      DialogResult resposta = MessageBox.Show("Deseja excluir o dado?", "Excluir?", MessageBoxButtons.YesNo);
+
       if (resposta == DialogResult.Yes)
       {
-        string query = "DELETE FROM tb_horarios WHERE N_IDHORARIO=" + ttb_ID.Text;
-        Banco.DML(query);
-        query = @"
-        SELECT
-          N_IDHORARIO as 'ID',
-          T_DSCHORARIO as 'Horário'
-        FROM
-          tb_horarios
-        ORDER BY
-          T_DSCHORARIO
-      ";
-        dgv_Horario.DataSource = Banco.DQL(query);
+        if (!string.IsNullOrEmpty(ttb_ID.Text))
+        {
+          int id = Convert.ToInt32(ttb_ID.Text);
+
+          string deleteQuery = $"DELETE FROM tb_horarios WHERE N_IDHORARIO={id}";
+          Banco.DML(deleteQuery);
+
+          string selectQuery = @"
+            SELECT
+                N_IDHORARIO as 'ID',
+                T_DSCHORARIO as 'Horário'
+            FROM
+                tb_horarios
+            ORDER BY
+                T_DSCHORARIO
+        ";
+
+          dgv_Horario.DataSource = Banco.DQL(selectQuery);
+        }
+        else
+        {
+          MessageBox.Show("O ID não pode estar vazio para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
       }
+
+
     }
   }
 }
