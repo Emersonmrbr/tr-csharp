@@ -99,32 +99,33 @@ namespace Academia
     private void btn_Excluir_Click(object sender, EventArgs e)
     {
       DialogResult resposta = MessageBox.Show("Deseja excluir o dado?", "Excluir?", MessageBoxButtons.YesNo);
+
       if (resposta == DialogResult.Yes)
       {
-        if (!string.IsNullOrEmpty(ttb_Id.Text))
+        if (!string.IsNullOrEmpty(ttb_Id.Text) && int.TryParse(ttb_Id.Text, out int id))
         {
-          int id = Convert.ToInt32(ttb_Id.Text);
-          string deleteQuery = $"DELETE FROM tb_professores WHERE N_IDPROFESSOR= {id}";
+          string deleteQuery = $"DELETE FROM tb_professores WHERE N_IDPROFESSOR={id}";
           Banco.DML(deleteQuery);
 
           string selectQuery = @"
-          SELECT
-            N_IDPROFESSOR as 'ID',
-            T_NOMEPROFESSOR as 'Nome',
-            T_TELEFONE as 'Telefone'
-          FROM
-            tb_professores
-          ORDER BY
-            T_NOMEPROFESSOR
-          ";
+            SELECT
+                N_IDPROFESSOR as 'ID',
+                T_NOMEPROFESSOR as 'Nome',
+                T_TELEFONE as 'Telefone'
+            FROM
+                tb_professores
+            ORDER BY
+                T_NOMEPROFESSOR
+        ";
           dgv_Professor.DataSource = Banco.DQL(selectQuery);
         }
         else
         {
-          MessageBox.Show("O ID não pode estar vazio para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+          MessageBox.Show("O ID não pode estar vazio ou não ser um número válido para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
       }
+
+
     }
   }
 }
