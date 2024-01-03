@@ -13,7 +13,7 @@ namespace Academia
   public partial class F_GestaoTurmas : Form
   {
     string idSelecionado;
-    int modo = 0; //0 = Padrão, 1 = Edição, 2 = Inserção
+    bool novaTurma = false; //0 = Padrão, 1 = Edição, 2 = Inserção
     public F_GestaoTurmas()
     {
       InitializeComponent();
@@ -87,7 +87,7 @@ namespace Academia
       DataGridView dgv = (DataGridView)sender;
       if (dgv.SelectedRows.Count > 0)
       {
-        modo = 0;
+        novaTurma = false;
         idSelecionado = dgv_Turmas.Rows[dgv_Turmas.SelectedRows[0].Index].Cells[0].Value.ToString();
         //string id = dgv.SelectedRows[0].Cells["ID"].Value.ToString();
         string selectQuery = $"SELECT * FROM tb_turmas WHERE N_IDTURMA='{idSelecionado}'";
@@ -117,13 +117,13 @@ namespace Academia
       cbb_Horario.SelectedIndex = -1;
       cbb_Status.SelectedIndex = -1;
       ttb_Nome.Focus();
-      modo = 2;
+      novaTurma = true;
     }
 
     private void btn_Salvar_Click(object sender, EventArgs e)
     {
       string query;
-      if (modo == 2)
+      if (novaTurma)
       {
         query = string.Format(@"
           INSERT INTO tb_turmas
@@ -135,8 +135,9 @@ namespace Academia
           int.Parse(Math.Round(nud_MaximoAluno.Value, 0).ToString()),
           cbb_Status.SelectedValue);
         Banco.DML(query);
+        novaTurma = false;
       }
-      if (modo != 2)
+      else
       {
         query = string.Format(@"
         UPDATE
