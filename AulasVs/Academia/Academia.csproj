@@ -109,6 +109,8 @@
     <Compile Include="F_Professores.Designer.cs">
       <DependentUpon>F_Professores.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestaoTurmasGPT.cs" />
+    <Compile Include="GestaoTurmas_OLD.cs" />
     <Compile Include="Globais.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
