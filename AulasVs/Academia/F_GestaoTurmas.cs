@@ -12,7 +12,8 @@ namespace Academia
 {
   public partial class F_GestaoTurmas : Form
   {
-    string idSelecionado = string.Empty;
+    string idSelecionado;
+    int modo = 0; //0 = Padrão, 1 = Edição, 2 = Inserção
     public F_GestaoTurmas()
     {
       InitializeComponent();
@@ -52,7 +53,6 @@ namespace Academia
       cbb_Professor.DataSource = Banco.DQL(queryProfessor);
       cbb_Professor.DisplayMember = "T_NOMEPROFESSOR";
       cbb_Professor.ValueMember = "N_IDPROFESSOR";
-      Console.WriteLine("Professores carregado");
 
       //Popular ComboBox Status (Ativa = A, Paralisada = P, Cancelada = C)
       Dictionary<string, string> st = new Dictionary<string, string>
@@ -87,8 +87,10 @@ namespace Academia
       DataGridView dgv = (DataGridView)sender;
       if (dgv.SelectedRows.Count > 0)
       {
-        string id = dgv.SelectedRows[0].Cells["ID"].Value.ToString();
-        string selectQuery = $"SELECT * FROM tb_turmas WHERE N_IDTURMA={id}";
+        modo = 0;
+        idSelecionado = dgv_Turmas.Rows[dgv_Turmas.SelectedRows[0].Index].Cells[0].Value.ToString();
+        //string id = dgv.SelectedRows[0].Cells["ID"].Value.ToString();
+        string selectQuery = $"SELECT * FROM tb_turmas WHERE N_IDTURMA='{idSelecionado}'";
 
         DataTable dt = Banco.DQL(selectQuery);
         if (dt.Rows.Count > 0)
@@ -99,6 +101,103 @@ namespace Academia
           cbb_Status.SelectedValue = dt.Rows[0].Field<string>("T_STATUS");
           cbb_Horario.SelectedValue = dt.Rows[0].Field<long>("N_IDHORARIO").ToString();
         }
+      }
+    }
+
+    private void btn_Fechar_Click(object sender, EventArgs e)
+    {
+      Close();
+    }
+
+    private void btn_Novo_Click(object sender, EventArgs e)
+    {
+      ttb_Nome.Clear();
+      cbb_Professor.SelectedIndex = -1;
+      nud_MaximoAluno.Value = 0;
+      cbb_Horario.SelectedIndex = -1;
+      cbb_Status.SelectedIndex = -1;
+      ttb_Nome.Focus();
+      modo = 2;
+    }
+
+    private void btn_Salvar_Click(object sender, EventArgs e)
+    {
+      string query;
+      if (modo == 2)
+      {
+        query = string.Format(@"
+          INSERT INTO tb_turmas
+          (T_DSCTURMA,N_IDPROFESSOR,N_IDHORARIO,N_MAXALUNOS,T_STATUS)
+          VALUES ('{0}',{1},{2},{3},'{4}')",
+          ttb_Nome.Text,
+          cbb_Professor.SelectedValue,
+          cbb_Horario.SelectedValue,
+          int.Parse(Math.Round(nud_MaximoAluno.Value, 0).ToString()),
+          cbb_Status.SelectedValue);
+        Banco.DML(query);
+      }
+      if (modo != 2)
+      {
+        query = string.Format(@"
+        UPDATE
+          tb_turmas
+        SET
+          T_DSCTURMA='{0}',
+          N_IDPROFESSOR={1},
+          N_IDHORARIO={2},
+          N_MAXALUNOS={3},
+          T_STATUS='{4}'
+        WHERE
+          N_IDTURMA='{5}'",
+          ttb_Nome.Text,
+          cbb_Professor.SelectedValue,
+          cbb_Horario.SelectedValue,
+          int.Parse(Math.Round(nud_MaximoAluno.Value, 0).ToString()),
+          cbb_Status.SelectedValue.ToString(),
+          idSelecionado);
+        Banco.DML(query);
+      }
+      string selectQuery = @"
+        SELECT
+          tbt.N_IDTURMA as 'ID',
+          tbt.T_DSCTURMA as 'Nome',
+          tbh.T_DSCHORARIO as 'Horário'
+        FROM
+          tb_turmas as tbt
+        INNER JOIN
+          tb_horarios as tbh on tbh.N_IDHORARIO = tbt.N_IDHORARIO
+        ORDER BY
+          T_DSCTURMA
+        ";
+      dgv_Turmas.DataSource = Banco.DQL(selectQuery);
+    }
+
+    private void btn_Excluir_Click(object sender, EventArgs e)
+    {
+      DialogResult resposta = MessageBox.Show("Deseja excluir o dado?", "Excluir?", MessageBoxButtons.YesNo);
+      if (resposta == DialogResult.Yes)
+      {
+        string queryDelete = string.Format(@"
+        DELETE
+        FROM
+          tb_turmas
+        WHERE
+          N_IDTURMA={0}", idSelecionado);
+        Banco.DML(queryDelete);
+
+        string selectQuery = @"
+        SELECT
+          tbt.N_IDTURMA as 'ID',
+          tbt.T_DSCTURMA as 'Nome',
+          tbh.T_DSCHORARIO as 'Horário'
+        FROM
+          tb_turmas as tbt
+        INNER JOIN
+          tb_horarios as tbh on tbh.N_IDHORARIO = tbt.N_IDHORARIO
+        ORDER BY
+          T_DSCTURMA
+        ";
+        dgv_Turmas.DataSource = Banco.DQL(selectQuery);
       }
     }
   }

@@ -60,6 +60,7 @@
       dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
       dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
       this.dgv_Turmas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+      this.dgv_Turmas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
       dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
       dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
       dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -80,6 +81,7 @@
       this.dgv_Turmas.Location = new System.Drawing.Point(12, 12);
       this.dgv_Turmas.MultiSelect = false;
       this.dgv_Turmas.Name = "dgv_Turmas";
+      this.dgv_Turmas.RowHeadersVisible = false;
       this.dgv_Turmas.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Control;
       this.dgv_Turmas.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.WindowText;
       this.dgv_Turmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -117,6 +119,7 @@
       this.btn_Excluir.TabIndex = 2;
       this.btn_Excluir.Text = "Excluir";
       this.btn_Excluir.UseVisualStyleBackColor = true;
+      this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
       // 
       // btn_Salvar
       // 
@@ -126,6 +129,7 @@
       this.btn_Salvar.TabIndex = 1;
       this.btn_Salvar.Text = "Salvar";
       this.btn_Salvar.UseVisualStyleBackColor = true;
+      this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
       // 
       // btn_Novo
       // 
@@ -135,6 +139,7 @@
       this.btn_Novo.TabIndex = 0;
       this.btn_Novo.Text = "Novo";
       this.btn_Novo.UseVisualStyleBackColor = true;
+      this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
       // 
       // btn_Fechar
       // 
@@ -144,6 +149,7 @@
       this.btn_Fechar.TabIndex = 4;
       this.btn_Fechar.Text = "Fechar";
       this.btn_Fechar.UseVisualStyleBackColor = true;
+      this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
       // 
       // label1
       // 
