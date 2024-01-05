@@ -102,6 +102,7 @@ namespace Academia
         novaTurma = false;
         idSelecionado = dgv_Turmas.Rows[dgv_Turmas.SelectedRows[0].Index].Cells[0].Value.ToString();
         PreencherCamposTurma();
+        ttb_Vagas.Text = AtualizarQuantidadeVagas();
       }
     }
 
@@ -119,6 +120,26 @@ namespace Academia
         cbb_Horario.SelectedValue = dt.Rows[0].Field<long>("N_IDHORARIO").ToString();
       }
     }
+
+    private string AtualizarQuantidadeVagas()
+    {
+      string selectQuery = $@"
+        SELECT
+            COUNT(N_IDALUNO) AS QuantidadeVagas
+        FROM
+            tb_alunos
+        WHERE
+            T_STATUS='A' AND N_IDTURMA={idSelecionado}";
+
+      DataTable dt = Banco.DQL(selectQuery);
+
+      int vagasTotais = (int)Math.Round(nud_MaximoAluno.Value, 0);
+      int vagasOcupadas = Convert.ToInt32(dt.Rows[0]["QuantidadeVagas"]);
+      int vagasDisponiveis = vagasTotais - vagasOcupadas;
+
+      return vagasDisponiveis.ToString();
+    }
+
 
     private void btn_Fechar_Click(object sender, EventArgs e)
     {
@@ -211,5 +232,6 @@ namespace Academia
                     N_IDTURMA={0}", idSelecionado);
       Banco.DML(queryDelete);
     }
+
   }
 }
