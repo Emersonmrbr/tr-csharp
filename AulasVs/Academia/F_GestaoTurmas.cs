@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Academia
 {
@@ -233,5 +237,33 @@ namespace Academia
       Banco.DML(queryDelete);
     }
 
+    private void btn_Imprimir_Click(object sender, EventArgs e)
+    {
+      string nomeArquivo = Globais.caminho + @"\turmas.pdf";
+      FileStream arquivoPDF = new FileStream(nomeArquivo, FileMode.Create);
+      Document doc = new Document(PageSize.A4);
+      PdfWriter escritorPDF = PdfWriter.GetInstance(doc, arquivoPDF);
+
+      string dados = string.Empty;
+
+      Paragraph paragrafo1 = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 20, (int)System.Drawing.FontStyle.Bold));
+      paragrafo1.Alignment = Element.ALIGN_CENTER;
+      paragrafo1.Add("Núcleo MAp");
+      paragrafo1.Font = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14, (int)System.Drawing.FontStyle.Italic);
+      paragrafo1.Add("Curso de C#");
+      string texto = "http://www.nucleomap.com.br";
+      paragrafo1.Add(texto);
+
+      Paragraph paragrafo2 = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 12, (int)System.Drawing.FontStyle.Bold));
+      paragrafo2.Alignment = Element.ALIGN_LEFT;
+      texto = "Texto do segundo paragrafo";
+      paragrafo2.Add(texto);
+
+      doc.Open();
+      doc.Add(paragrafo1);
+      doc.Add(paragrafo2);
+      doc.Close();
+
+    }
   }
 }

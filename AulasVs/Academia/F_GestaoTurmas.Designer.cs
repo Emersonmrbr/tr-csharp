@@ -122,6 +122,7 @@
       this.btn_Imprimir.TabIndex = 3;
       this.btn_Imprimir.Text = "Imprimir";
       this.btn_Imprimir.UseVisualStyleBackColor = true;
+      this.btn_Imprimir.Click += new System.EventHandler(this.btn_Imprimir_Click);
       // 
       // btn_Excluir
       // 
@@ -176,7 +177,6 @@
       this.nud_MaximoAluno.Name = "nud_MaximoAluno";
       this.nud_MaximoAluno.Size = new System.Drawing.Size(123, 20);
       this.nud_MaximoAluno.TabIndex = 3;
-      this.nud_MaximoAluno.ValueChanged += new System.EventHandler(this.nud_MaximoAluno_ValueChanged);
       // 
       // label2
       // 

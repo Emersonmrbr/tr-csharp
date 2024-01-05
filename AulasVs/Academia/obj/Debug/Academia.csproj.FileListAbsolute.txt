@@ -23,3 +23,6 @@ D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.F_GestaoUsuarios.resources
 D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.F_Horarios.resources
 D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.F_Professores.resources
 D:\tr-csharp\AulasVs\Academia\obj\Debug\Academia.F_GestaoTurmas.resources
+D:\tr-csharp\AulasVs\Academia\bin\Debug\BouncyCastle.Crypto.dll
+D:\tr-csharp\AulasVs\Academia\bin\Debug\itextsharp.dll
+D:\tr-csharp\AulasVs\Academia\bin\Debug\itextsharp.xml
