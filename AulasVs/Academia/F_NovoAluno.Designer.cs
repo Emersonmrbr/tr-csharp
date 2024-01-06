@@ -132,6 +132,7 @@
       this.btn_SelecionarTurma.TabIndex = 8;
       this.btn_SelecionarTurma.Text = "...";
       this.btn_SelecionarTurma.UseVisualStyleBackColor = true;
+      this.btn_SelecionarTurma.Click += new System.EventHandler(this.btn_SelecionarTurma_Click);
       // 
       // ttb_Plano
       // 
@@ -236,7 +237,6 @@
       this.Name = "F_NovoAluno";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Novo Aluno";
-      this.Load += new System.EventHandler(this.F_NovoAluno_Load);
       this.panel1.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
@@ -252,7 +252,6 @@
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.ComboBox cob_Status;
     private System.Windows.Forms.Panel panel1;
-    private System.Windows.Forms.TextBox ttb_Turma;
     private System.Windows.Forms.Button btn_SelecionarTurma;
     private System.Windows.Forms.TextBox ttb_Plano;
     private System.Windows.Forms.Button btn_SelecionarPlano;
@@ -262,5 +261,6 @@
     private System.Windows.Forms.Button btn_Fechar;
     private System.Windows.Forms.Button btn_Cancelar;
     private System.Windows.Forms.Button btn_Salvar;
+    public System.Windows.Forms.TextBox ttb_Turma;
   }
 }

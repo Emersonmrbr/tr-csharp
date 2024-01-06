@@ -15,77 +15,71 @@ namespace Academia
     public F_NovoAluno()
     {
       InitializeComponent();
+      InicializarComboBoxStatus();
     }
 
-    private void F_NovoAluno_Load(object sender, EventArgs e)
+    private void InicializarComboBoxStatus()
     {
-      Dictionary<string, string> st = new Dictionary<string, string>
+      Dictionary<string, string> status = new Dictionary<string, string>
             {
                 { "A", "Ativa" },
                 { "B", "Bloqueado" },
                 { "C", "Cancelado" }
             };
-      cob_Status.DataSource = new BindingSource(st, null);
+      cob_Status.DataSource = new BindingSource(status, null);
       cob_Status.DisplayMember = "Value";
       cob_Status.ValueMember = "Key";
     }
 
+    private void ConfigurarControles(bool novoHabilitado, bool salvarHabilitado, bool cancelarHabilitado)
+    {
+      btn_Cancelar.Enabled = cancelarHabilitado;
+      btn_Novo.Enabled = novoHabilitado;
+      btn_Salvar.Enabled = salvarHabilitado;
+      btn_SelecionarPlano.Enabled = salvarHabilitado;
+      btn_SelecionarTurma.Enabled = salvarHabilitado;
+      cob_Status.Enabled = salvarHabilitado;
+      cob_Status.SelectedIndex = 0;
+      mtb_Telefone.Clear();
+      mtb_Telefone.Enabled = salvarHabilitado;
+      ttb_Nome.Clear();
+      ttb_Nome.Enabled = salvarHabilitado;
+      ttb_Nome.Focus();
+      ttb_Plano.Clear();
+      ttb_Turma.Clear();
+    }
+
     private void btn_Novo_Click(object sender, EventArgs e)
     {
-      ttb_Nome.Enabled = true;
-      mtb_Telefone.Enabled = true;
-      cob_Status.Enabled = true;
-      btn_SelecionarPlano.Enabled = true;
-      btn_SelecionarTurma.Enabled = true;
-      btn_Salvar.Enabled = true;
-      ttb_Nome.Clear();
-      mtb_Telefone.Clear();
-      cob_Status.SelectedIndex = 0;
-      ttb_Nome.Focus();
-      btn_Cancelar.Enabled = true;
-      btn_Novo.Enabled = false;
+      ConfigurarControles(false, true, true);
     }
 
     private void btn_Cancelar_Click(object sender, EventArgs e)
     {
-      ttb_Nome.Enabled = false;
-      mtb_Telefone.Enabled = false;
-      cob_Status.Enabled = false;
-      btn_SelecionarPlano.Enabled = false;
-      btn_SelecionarTurma.Enabled = false;
-      ttb_Nome.Clear();
-      mtb_Telefone.Clear();
-      cob_Status.SelectedIndex = 0;
-      btn_Salvar.Enabled = false;
-      btn_Cancelar.Enabled = false;
-      btn_Novo.Enabled = true;
+      ConfigurarControles(true, false, false);
     }
 
     private void btn_Salvar_Click(object sender, EventArgs e)
     {
-      string query = string.Format(@"
-        INSERT INTO tb_alunos
-          (T_NOMEALUNO,T_TELEFONE,T_STATUS,N_IDTURMA)
-        VALUES ('{0}','{1}','{2}',{3})", ttb_Nome.Text, mtb_Telefone.Text, cob_Status.SelectedValue, ttb_Turma.Tag.ToString());
+      string query = $@"
+                INSERT INTO tb_alunos
+                    (T_NOMEALUNO, T_TELEFONE, T_STATUS, N_IDTURMA)
+                VALUES ('{ttb_Nome.Text}', '{mtb_Telefone.Text}', '{cob_Status.SelectedValue}', {ttb_Turma.Tag})";
+
       Banco.DML(query);
 
-
-      ttb_Nome.Enabled = false;
-      mtb_Telefone.Enabled = false;
-      cob_Status.Enabled = false;
-      btn_SelecionarPlano.Enabled = false;
-      btn_SelecionarTurma.Enabled = false;
-      ttb_Nome.Clear();
-      mtb_Telefone.Clear();
-      cob_Status.SelectedIndex = 0;
-      btn_Salvar.Enabled = false;
-      btn_Cancelar.Enabled = false;
-      btn_Novo.Enabled = true;
+      ConfigurarControles(true, false, false);
     }
 
     private void btn_Fechar_Click(object sender, EventArgs e)
     {
       Close();
+    }
+
+    private void btn_SelecionarTurma_Click(object sender, EventArgs e)
+    {
+      F_SelecionarTurmas f_SelecionarTurmas = new F_SelecionarTurmas(this);
+      f_SelecionarTurmas.ShowDialog();
     }
   }
 }
