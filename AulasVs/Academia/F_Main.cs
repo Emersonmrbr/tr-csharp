@@ -71,7 +71,8 @@ namespace Academia
 
     private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      //AbreFormulario()
+      F_NovoAluno f_NovoAluno = new F_NovoAluno();
+      AbreFormulario(1, f_NovoAluno);
     }
 
     private void horáriosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,5 +92,6 @@ namespace Academia
       F_GestaoTurmas f_GestaoTurmas = new F_GestaoTurmas();
       AbreFormulario(2, f_GestaoTurmas);
     }
+
   }
 }
