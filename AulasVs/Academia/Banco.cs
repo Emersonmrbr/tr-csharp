@@ -15,9 +15,16 @@ namespace Academia
     private static SQLiteConnection conexao;
     private static SQLiteConnection ConexaoBanco()
     {
-      conexao = new SQLiteConnection("Data Source =" + Globais.caminhoBanco + Globais.nomeBanco);
-      conexao.Open();
-      return conexao;
+      try
+      {
+        conexao = new SQLiteConnection($"Data Source={Globais.caminhoBanco}");
+        conexao.Open();
+        return conexao;
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
     }
 
     public static DataTable ObterTodosUsuarios()
@@ -188,14 +195,14 @@ namespace Academia
     //FIM - Funções do FORM F_GestaoUsuarios
 
     //Funçoes genericas
-    public static DataTable DQL(string q)//Data Query Language (SELECT)
+    public static DataTable DQL(string query)//Data Query Language (SELECT)
     {
       try
       {
         var ConexaoLocal = ConexaoBanco();
         using (var cmd = ConexaoLocal.CreateCommand())
         {
-          cmd.CommandText = q;
+          cmd.CommandText = query;
           var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
           var dt = new DataTable();
           da.Fill(dt);
@@ -208,14 +215,14 @@ namespace Academia
         throw ex;
       }
     }
-    public static void DML(string q, string msgOK = null, string msgERRO = null)//Data Manipulation Language (INSERT, DELETE e UPDATE)
+    public static void DML(string query, string msgOK = null, string msgERRO = null)//Data Manipulation Language (INSERT, DELETE e UPDATE)
     {
       try
       {
         var ConexaoLocal = ConexaoBanco();
         using (var cmd = ConexaoLocal.CreateCommand())
         {
-          cmd.CommandText = q;
+          cmd.CommandText = query;
           var da = new SQLiteDataAdapter(cmd.CommandText, ConexaoLocal);
           var dt = new DataTable();
           cmd.ExecuteNonQuery();

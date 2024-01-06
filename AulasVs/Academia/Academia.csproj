@@ -116,6 +116,7 @@
       <DependentUpon>F_Professores.cs</DependentUpon>
     </Compile>
     <Compile Include="GerarPDF.cs" />
+    <Compile Include="GerarPDFChatGPT.cs" />
     <Compile Include="GestaoTurmasGPT.cs" />
     <Compile Include="GestaoTurmas_OLD.cs" />
     <Compile Include="Globais.cs" />
