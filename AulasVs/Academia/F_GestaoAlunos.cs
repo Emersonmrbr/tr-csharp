@@ -12,8 +12,11 @@ namespace Academia
 {
   public partial class F_GestaoAlunos : Form
   {
-    private string idSelecionado;
-    private bool novoAluno = false;
+    private string idSelecionado { get; set; } = string.Empty;
+    private bool novoAluno { get; set; } = false;
+    private string turma { get; set; } = string.Empty;
+    private string turmaAtual { get; set; } = string.Empty;
+    private int linha { get; set; } = 0;
     public F_GestaoAlunos()
     {
       InitializeComponent();
@@ -45,26 +48,26 @@ namespace Academia
 
     private void CarregarTurmas()
     {
-      string query = @"
+      string queryTurmas = @"
       SELECT
         N_IDTURMA,
-        ('Vagas: '||(
-                      (N_MAXALUNOS)-(
-                        SELECT
-                          count(tba.N_IDALUNO)
-                        FROM
-                          tb_alunos as tba
-                        WHERE
-                          tba.T_STATUS='A' and tba.N_IDTURMA=N_IDTURMA
-                      )
-                    ) || ' / Turmas: ' || T_DSCTURMA
-        )as 'Turma'
+        ('Vagas: '|| (
+                       (N_MAXALUNOS) - (
+                                          SELECT
+                                            count(tba.N_IDALUNO)
+                                          FROM
+                                            tb_alunos as tba
+                                          WHERE
+                                            tba.T_STATUS='A' AND tba.N_IDTURMA=tbt.N_IDTURMA
+                                        )
+                      ) || ' / Turmas: ' || T_DSCTURMA
+        ) as 'Turma'
       FROM
-        tb_turmas
+        tb_turmas as tbt
       ORDER BY
         N_IDTURMA";
       cob_Turmas.Items.Clear();
-      cob_Turmas.DataSource = Banco.DQL(query);
+      cob_Turmas.DataSource = Banco.DQL(queryTurmas);
       cob_Turmas.DisplayMember = "Turma";
       cob_Turmas.ValueMember = "N_IDTURMA";
     }
@@ -79,6 +82,83 @@ namespace Academia
       cbb_Status.DataSource = new BindingSource(st, null);
       cbb_Status.DisplayMember = "Value";
       cbb_Status.ValueMember = "Key";
+
+      turma = cob_Turmas.Text;
+      turmaAtual = cob_Turmas.Text;
+      idSelecionado = dgv_Alunos.Rows[0].Cells[1].Value.ToString();
+    }
+
+    private void btn_Salvar_Click(object sender, EventArgs e)
+    {
+      turma = cob_Turmas.Text;
+      if (turmaAtual != turma)
+      {
+        string[] t = turma.Split(' ');
+        int vagas = Convert.ToInt32(t[1]);
+        if (vagas < 1)
+        {
+          MessageBox.Show("Não há vagas na turma selecionada, seleciona outra turma");
+          cob_Turmas.Focus();
+          return;
+        }
+        linha = dgv_Alunos.SelectedRows[0].Index;
+        string query = string.Format(@"
+          UPDATE
+            tb_alunos
+          SET
+            T_NOMEALUNO='{0}',
+            T_TELEFONE='{1}',
+            T_STATUS='{2}',
+            N_IDTURMA='{3}'
+          WHERE
+            N_IDALUNO={4}", ttb_Nome.Text, mtb_Telefone.Text, cbb_Status.SelectedValue, cob_Turmas.SelectedValue, idSelecionado);
+        Banco.DML(query);
+        dgv_Alunos[1, linha].Value = ttb_Nome.Text;
+      }
+    }
+
+    private void btn_Excluir_Click(object sender, EventArgs e)
+    {
+      if (MessageBox.Show("Deseja excluir o item?", "Excluir", MessageBoxButtons.YesNo) == DialogResult.Yes)
+      {
+        string query = String.Format(@"
+          DELETE FROM
+            tb_alunos
+          WHERE
+            N_IDALUNO={0}", idSelecionado);
+        Banco.DML(query);
+        dgv_Alunos.Rows.Remove(dgv_Alunos.CurrentRow);
+      }
+    }
+
+    private void btn_Fechar_Click(object sender, EventArgs e)
+    {
+      Close();
+    }
+
+    private void dgv_Alunos_SelectionChanged(object sender, EventArgs e)
+    {
+      DataGridView dgv = (DataGridView)sender;
+      if (dgv.SelectedRows.Count > 0)
+      {
+        idSelecionado = dgv.Rows[dgv.SelectedRows[0].Index].Cells[0].Value.ToString();
+        string query = String.Format(@"
+          SELECT
+            N_IDALUNO,
+            T_NOMEALUNO,
+            T_TELEFONE,
+            T_STATUS,
+            N_IDTURMA
+          FROM
+            tb_alunos
+          WHERE N_IDALUNO={0}", idSelecionado);
+        DataTable dt = Banco.DQL(query);
+        ttb_Nome.Text = dt.Rows[0]["T_NOMEALUNO"].ToString();
+        mtb_Telefone.Text = dt.Rows[0]["T_TELEFONE"].ToString();
+        cbb_Status.SelectedValue = dt.Rows[0]["T_STATUS"].ToString();
+        cob_Turmas.SelectedValue = Convert.ToInt32(dt.Rows[0]["N_IDTURMA"]);
+        turmaAtual = cob_Turmas.Text;
+      }
     }
   }
 }

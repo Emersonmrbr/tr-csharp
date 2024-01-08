@@ -96,6 +96,7 @@
       this.btn_Fechar.TabIndex = 4;
       this.btn_Fechar.Text = "Fechar";
       this.btn_Fechar.UseVisualStyleBackColor = true;
+      this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
       // 
       // btn_Imprimir
       // 
@@ -123,6 +124,7 @@
       this.btn_Excluir.TabIndex = 1;
       this.btn_Excluir.Text = "Exluir";
       this.btn_Excluir.UseVisualStyleBackColor = true;
+      this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
       // 
       // btn_Salvar
       // 
@@ -132,6 +134,7 @@
       this.btn_Salvar.TabIndex = 0;
       this.btn_Salvar.Text = "Salvar";
       this.btn_Salvar.UseVisualStyleBackColor = true;
+      this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
       // 
       // dgv_Alunos
       // 
@@ -167,6 +170,7 @@
       this.dgv_Alunos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.dgv_Alunos.Size = new System.Drawing.Size(402, 531);
       this.dgv_Alunos.TabIndex = 12;
+      this.dgv_Alunos.SelectionChanged += new System.EventHandler(this.dgv_Alunos_SelectionChanged);
       // 
       // label1
       // 
