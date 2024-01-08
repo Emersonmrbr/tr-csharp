@@ -73,6 +73,12 @@
   <ItemGroup>
     <Compile Include="Banco.cs" />
     <Compile Include="BancoGPT.cs" />
+    <Compile Include="F_GestaoAlunos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_GestaoAlunos.Designer.cs">
+      <DependentUpon>F_GestaoAlunos.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_GestaoTurmas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
+    <EmbeddedResource Include="F_GestaoAlunos.resx">
+      <DependentUpon>F_GestaoAlunos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_GestaoTurmas.resx">
       <DependentUpon>F_GestaoTurmas.cs</DependentUpon>
     </EmbeddedResource>

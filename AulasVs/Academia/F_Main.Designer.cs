@@ -153,6 +153,7 @@
       this.gestãoDeAlunosToolStripMenuItem.Name = "gestãoDeAlunosToolStripMenuItem";
       this.gestãoDeAlunosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.gestãoDeAlunosToolStripMenuItem.Text = "Gestão de alunos";
+      this.gestãoDeAlunosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeAlunosToolStripMenuItem_Click);
       // 
       // uSUÁRIOSToolStripMenuItem
       // 
