@@ -28,29 +28,30 @@
     /// </summary>
     private void InitializeComponent()
     {
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
       this.ttb_Nome = new System.Windows.Forms.TextBox();
       this.cbb_Status = new System.Windows.Forms.ComboBox();
       this.cob_Turmas = new System.Windows.Forms.ComboBox();
       this.panel1 = new System.Windows.Forms.Panel();
       this.btn_Fechar = new System.Windows.Forms.Button();
-      this.btn_Imprimir = new System.Windows.Forms.Button();
       this.btn_Financeiro = new System.Windows.Forms.Button();
       this.btn_Excluir = new System.Windows.Forms.Button();
       this.btn_Salvar = new System.Windows.Forms.Button();
+      this.btn_Imprimir = new System.Windows.Forms.Button();
       this.dgv_Alunos = new System.Windows.Forms.DataGridView();
       this.label1 = new System.Windows.Forms.Label();
       this.mtb_Telefone = new System.Windows.Forms.MaskedTextBox();
       this.label2 = new System.Windows.Forms.Label();
-      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.peb_Foto = new System.Windows.Forms.PictureBox();
       this.label3 = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
       this.label5 = new System.Windows.Forms.Label();
+      this.ofd_Foto = new System.Windows.Forms.OpenFileDialog();
       this.panel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgv_Alunos)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.peb_Foto)).BeginInit();
       this.SuspendLayout();
       // 
       // ttb_Nome
@@ -98,15 +99,6 @@
       this.btn_Fechar.UseVisualStyleBackColor = true;
       this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
       // 
-      // btn_Imprimir
-      // 
-      this.btn_Imprimir.Location = new System.Drawing.Point(421, 221);
-      this.btn_Imprimir.Name = "btn_Imprimir";
-      this.btn_Imprimir.Size = new System.Drawing.Size(246, 23);
-      this.btn_Imprimir.TabIndex = 3;
-      this.btn_Imprimir.Text = "Imprimir carterinha";
-      this.btn_Imprimir.UseVisualStyleBackColor = true;
-      // 
       // btn_Financeiro
       // 
       this.btn_Financeiro.Location = new System.Drawing.Point(368, 3);
@@ -136,31 +128,40 @@
       this.btn_Salvar.UseVisualStyleBackColor = true;
       this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
       // 
+      // btn_Imprimir
+      // 
+      this.btn_Imprimir.Location = new System.Drawing.Point(421, 221);
+      this.btn_Imprimir.Name = "btn_Imprimir";
+      this.btn_Imprimir.Size = new System.Drawing.Size(246, 23);
+      this.btn_Imprimir.TabIndex = 3;
+      this.btn_Imprimir.Text = "Imprimir carterinha";
+      this.btn_Imprimir.UseVisualStyleBackColor = true;
+      // 
       // dgv_Alunos
       // 
       this.dgv_Alunos.AllowUserToAddRows = false;
       this.dgv_Alunos.AllowUserToDeleteRows = false;
-      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-      this.dgv_Alunos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+      dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+      this.dgv_Alunos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
       this.dgv_Alunos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-      dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-      this.dgv_Alunos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+      dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dgv_Alunos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
       this.dgv_Alunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-      dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-      dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-      dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-      dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-      this.dgv_Alunos.DefaultCellStyle = dataGridViewCellStyle3;
+      dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dgv_Alunos.DefaultCellStyle = dataGridViewCellStyle6;
       this.dgv_Alunos.Location = new System.Drawing.Point(12, 12);
       this.dgv_Alunos.MultiSelect = false;
       this.dgv_Alunos.Name = "dgv_Alunos";
@@ -198,13 +199,16 @@
       this.label2.TabIndex = 16;
       this.label2.Text = "Telefone";
       // 
-      // pictureBox1
+      // peb_Foto
       // 
-      this.pictureBox1.Location = new System.Drawing.Point(421, 271);
-      this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new System.Drawing.Size(100, 134);
-      this.pictureBox1.TabIndex = 18;
-      this.pictureBox1.TabStop = false;
+      this.peb_Foto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.peb_Foto.Location = new System.Drawing.Point(421, 271);
+      this.peb_Foto.Name = "peb_Foto";
+      this.peb_Foto.Size = new System.Drawing.Size(100, 134);
+      this.peb_Foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.peb_Foto.TabIndex = 18;
+      this.peb_Foto.TabStop = false;
+      this.peb_Foto.DoubleClick += new System.EventHandler(this.peb_Foto_DoubleClick);
       // 
       // label3
       // 
@@ -233,6 +237,10 @@
       this.label5.TabIndex = 21;
       this.label5.Text = "Turmas";
       // 
+      // ofd_Foto
+      // 
+      this.ofd_Foto.FileName = "ofd_Foto";
+      // 
       // F_GestaoAlunos
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,7 +250,7 @@
       this.Controls.Add(this.btn_Imprimir);
       this.Controls.Add(this.label4);
       this.Controls.Add(this.label3);
-      this.Controls.Add(this.pictureBox1);
+      this.Controls.Add(this.peb_Foto);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.mtb_Telefone);
       this.Controls.Add(this.label1);
@@ -258,7 +266,7 @@
       this.Load += new System.EventHandler(this.F_GestaoAlunos_Load);
       this.panel1.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.dgv_Alunos)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.peb_Foto)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -279,9 +287,10 @@
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.MaskedTextBox mtb_Telefone;
     private System.Windows.Forms.Label label2;
-    private System.Windows.Forms.PictureBox pictureBox1;
+    private System.Windows.Forms.PictureBox peb_Foto;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.Label label5;
+    private System.Windows.Forms.OpenFileDialog ofd_Foto;
   }
 }

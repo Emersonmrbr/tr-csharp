@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Academia
 {
@@ -16,9 +17,13 @@ namespace Academia
     private string turma { get; set; } = string.Empty;
     private string turmaAtual { get; set; } = string.Empty;
     private int linha { get; set; } = 0;
+    string origemFoto { get; set; } = string.Empty;
+    string destinoFoto { get; set; } = string.Empty;
+    bool fotoSelecionada { get; set; } = false;
     public F_GestaoAlunos()
     {
       InitializeComponent();
+      ofd_Foto.Filter = "JPG(*.jpg)|*.jpg|PNG(*.png)|*.png";
     }
 
     private void F_GestaoAlunos_Load(object sender, EventArgs e)
@@ -88,8 +93,13 @@ namespace Academia
 
     private void btn_Salvar_Click(object sender, EventArgs e)
     {
+      if (!fotoSelecionada && MessageBox.Show("Sem foto do aluno selecionada, deseja continuar?", "Alerta", MessageBoxButtons.YesNo) == DialogResult.No)
+      {
+        return;
+      }
+
       turma = cob_Turmas.Text;
-      if (turmaAtual != turma)
+      if (turmaAtual != turma || peb_Foto.ImageLocation != destinoFoto)
       {
         string[] t = turma.Split(' ');
         if (int.TryParse(t[1], out int vagas) && vagas < 1)
@@ -106,12 +116,24 @@ namespace Academia
             T_NOMEALUNO='{0}',
             T_TELEFONE='{1}',
             T_STATUS='{2}',
-            N_IDTURMA='{3}'
+            N_IDTURMA='{3}',
+            T_FOTO='{4}'
           WHERE
-            N_IDALUNO={4}", ttb_Nome.Text, mtb_Telefone.Text, cbb_Status.SelectedValue, cob_Turmas.SelectedValue, idSelecionado);
+            N_IDALUNO={5}", ttb_Nome.Text, mtb_Telefone.Text, cbb_Status.SelectedValue, cob_Turmas.SelectedValue, destinoFoto, idSelecionado);
         Banco.DML(query);
+        System.IO.File.Copy(origemFoto, destinoFoto, true);
+        if (File.Exists(destinoFoto))
+        {
+          peb_Foto.ImageLocation = destinoFoto;
+        }
+        else
+        {
+          if (MessageBox.Show("Erro ao localizar foto, deseja continuar?", "Alerta", MessageBoxButtons.YesNo) == DialogResult.No)
+          {
+            return;
+          }
+        }
         dgv_Alunos[1, linha].Value = ttb_Nome.Text;
-        Refresh();
       }
     }
 
@@ -119,6 +141,10 @@ namespace Academia
     {
       if (MessageBox.Show("Deseja excluir o item?", "Excluir", MessageBoxButtons.YesNo) == DialogResult.Yes)
       {
+        if (File.Exists(peb_Foto.ImageLocation))
+        {
+          File.Delete(peb_Foto.ImageLocation);
+        }
         string query = String.Format(@"
           DELETE FROM
             tb_alunos
@@ -146,7 +172,8 @@ namespace Academia
             T_NOMEALUNO,
             T_TELEFONE,
             T_STATUS,
-            N_IDTURMA
+            N_IDTURMA,
+            T_FOTO
           FROM
             tb_alunos
           WHERE N_IDALUNO={0}", idSelecionado);
@@ -156,7 +183,42 @@ namespace Academia
         cbb_Status.SelectedValue = dt.Rows[0]["T_STATUS"].ToString();
         cob_Turmas.SelectedValue = Convert.ToInt32(dt.Rows[0]["N_IDTURMA"]);
         turmaAtual = cob_Turmas.Text;
+        peb_Foto.ImageLocation = dt.Rows[0]["T_FOTO"].ToString();
       }
     }
+
+    private void peb_Foto_DoubleClick(object sender, EventArgs e)
+    {
+
+      while (ofd_Foto.ShowDialog() == DialogResult.OK)
+      {
+        if (File.Exists(peb_Foto.ImageLocation))
+        {
+          File.Delete(peb_Foto.ImageLocation);
+        }
+        origemFoto = ofd_Foto.FileName;
+        destinoFoto = Path.Combine(Globais.caminhoFoto, ofd_Foto.SafeFileName);
+        if (File.Exists(destinoFoto))
+        {
+          if (MessageBox.Show("Arquivo existe, deseja substituir", "Substituir", MessageBoxButtons.YesNo) == DialogResult.Yes)
+          {
+            peb_Foto.ImageLocation = origemFoto;
+            fotoSelecionada = true;
+            return;
+          }
+          else
+          {
+            fotoSelecionada = false;
+          }
+        }
+        else
+        {
+          peb_Foto.ImageLocation = origemFoto;
+          fotoSelecionada = true;
+          return;
+        }
+      }
+    }
+
   }
 }

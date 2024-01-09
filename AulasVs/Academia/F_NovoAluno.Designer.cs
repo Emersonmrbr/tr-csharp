@@ -233,6 +233,7 @@
       // 
       // btn_Foto
       // 
+      this.btn_Foto.Enabled = false;
       this.btn_Foto.Location = new System.Drawing.Point(463, 27);
       this.btn_Foto.Name = "btn_Foto";
       this.btn_Foto.Size = new System.Drawing.Size(85, 23);

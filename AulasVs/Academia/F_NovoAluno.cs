@@ -13,6 +13,9 @@ namespace Academia
 {
   public partial class F_NovoAluno : Form
   {
+    string origemFoto { get; set; } = string.Empty;
+    string destinoFoto { get; set; } = string.Empty;
+    bool fotoSelecionada { get; set; } = false;
     public F_NovoAluno()
     {
       InitializeComponent();
@@ -41,6 +44,7 @@ namespace Academia
       btn_SelecionarPlano.Enabled = salvarHabilitado;
       btn_SelecionarTurma.Enabled = salvarHabilitado;
       cob_Status.Enabled = salvarHabilitado;
+      btn_Foto.Enabled = salvarHabilitado;
       cob_Status.SelectedIndex = 0;
       mtb_Telefone.Clear();
       mtb_Telefone.Enabled = salvarHabilitado;
@@ -63,15 +67,42 @@ namespace Academia
 
     private void btn_Salvar_Click(object sender, EventArgs e)
     {
-      string query = $@"
-                INSERT INTO tb_alunos
-                    (T_NOMEALUNO, T_TELEFONE, T_STATUS, N_IDTURMA)
-                VALUES ('{ttb_Nome.Text}', '{mtb_Telefone.Text}', '{cob_Status.SelectedValue}', {ttb_Turma.Tag})";
+      if (!fotoSelecionada && MessageBox.Show("Sem foto do aluno selecionada, deseja continuar?", "Alerta", MessageBoxButtons.YesNo) == DialogResult.No)
+      {
+        return;
+      }
 
-      Banco.DML(query);
+      try
+      {
+        System.IO.File.Copy(origemFoto, destinoFoto, true);
 
-      ConfigurarControles(true, false, false);
+        if (File.Exists(destinoFoto))
+        {
+          peb_Foto.ImageLocation = destinoFoto;
+        }
+        else
+        {
+          if (MessageBox.Show("Erro ao localizar foto, deseja continuar?", "Alerta", MessageBoxButtons.YesNo) == DialogResult.No)
+          {
+            return;
+          }
+        }
+
+        string query = $@"
+            INSERT INTO tb_alunos
+                (T_NOMEALUNO, T_TELEFONE, T_STATUS, N_IDTURMA, T_FOTO)
+            VALUES ('{ttb_Nome.Text}', '{mtb_Telefone.Text}', '{cob_Status.SelectedValue}', {ttb_Turma.Tag},'{destinoFoto}')";
+
+        Banco.DML(query);
+
+        ConfigurarControles(true, false, false);
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show($"Erro ao salvar aluno: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+      }
     }
+
 
     private void btn_Fechar_Click(object sender, EventArgs e)
     {
@@ -86,23 +117,28 @@ namespace Academia
 
     private void btn_Foto_Click(object sender, EventArgs e)
     {
-      if (ofd_Foto.ShowDialog() == DialogResult.OK)
+      while (ofd_Foto.ShowDialog() == DialogResult.OK)
       {
-        if (File.Exists(Path.Combine(Globais.caminhoFoto, ofd_Foto.SafeFileName)))
+        origemFoto = ofd_Foto.FileName;
+        destinoFoto = Path.Combine(Globais.caminhoFoto, ofd_Foto.SafeFileName);
+        if (File.Exists(destinoFoto))
         {
-          if (MessageBox.Show("Arquivo existe, deseja substituir", "Substituir", MessageBoxButtons.YesNo) == DialogResult.No)
+          if (MessageBox.Show("Arquivo existe, deseja substituir", "Substituir", MessageBoxButtons.YesNo) == DialogResult.Yes)
           {
+            peb_Foto.ImageLocation = origemFoto;
+            fotoSelecionada = true;
             return;
           }
-        }
-        System.IO.File.Copy(ofd_Foto.FileName, Path.Combine(Globais.caminhoFoto, ofd_Foto.SafeFileName), true);
-        if (File.Exists(Path.Combine(Globais.caminhoFoto, ofd_Foto.SafeFileName)))
-        {
-          peb_Foto.ImageLocation = Path.Combine(Globais.caminhoFoto, ofd_Foto.FileName);
+          else
+          {
+            fotoSelecionada = false;
+          }
         }
         else
         {
-          MessageBox.Show("Arquivo não copiado");
+          peb_Foto.ImageLocation = origemFoto;
+          fotoSelecionada = true;
+          return;
         }
       }
     }
