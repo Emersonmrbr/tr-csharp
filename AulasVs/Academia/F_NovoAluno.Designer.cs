@@ -35,17 +35,21 @@
       this.label3 = new System.Windows.Forms.Label();
       this.cob_Status = new System.Windows.Forms.ComboBox();
       this.panel1 = new System.Windows.Forms.Panel();
+      this.btn_Fechar = new System.Windows.Forms.Button();
+      this.btn_Cancelar = new System.Windows.Forms.Button();
+      this.btn_Salvar = new System.Windows.Forms.Button();
+      this.btn_Novo = new System.Windows.Forms.Button();
       this.ttb_Turma = new System.Windows.Forms.TextBox();
       this.btn_SelecionarTurma = new System.Windows.Forms.Button();
       this.ttb_Plano = new System.Windows.Forms.TextBox();
       this.btn_SelecionarPlano = new System.Windows.Forms.Button();
       this.label4 = new System.Windows.Forms.Label();
       this.label5 = new System.Windows.Forms.Label();
-      this.btn_Novo = new System.Windows.Forms.Button();
-      this.btn_Salvar = new System.Windows.Forms.Button();
-      this.btn_Cancelar = new System.Windows.Forms.Button();
-      this.btn_Fechar = new System.Windows.Forms.Button();
+      this.ofd_Foto = new System.Windows.Forms.OpenFileDialog();
+      this.peb_Foto = new System.Windows.Forms.PictureBox();
+      this.btn_Foto = new System.Windows.Forms.Button();
       this.panel1.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.peb_Foto)).BeginInit();
       this.SuspendLayout();
       // 
       // label1
@@ -110,8 +114,50 @@
       this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.panel1.Location = new System.Drawing.Point(0, 213);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(446, 32);
+      this.panel1.Size = new System.Drawing.Size(567, 32);
       this.panel1.TabIndex = 6;
+      // 
+      // btn_Fechar
+      // 
+      this.btn_Fechar.Location = new System.Drawing.Point(457, 3);
+      this.btn_Fechar.Name = "btn_Fechar";
+      this.btn_Fechar.Size = new System.Drawing.Size(90, 23);
+      this.btn_Fechar.TabIndex = 3;
+      this.btn_Fechar.Text = "Fechar";
+      this.btn_Fechar.UseVisualStyleBackColor = true;
+      this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
+      // 
+      // btn_Cancelar
+      // 
+      this.btn_Cancelar.Enabled = false;
+      this.btn_Cancelar.Location = new System.Drawing.Point(309, 3);
+      this.btn_Cancelar.Name = "btn_Cancelar";
+      this.btn_Cancelar.Size = new System.Drawing.Size(90, 23);
+      this.btn_Cancelar.TabIndex = 2;
+      this.btn_Cancelar.Text = "Cancelar";
+      this.btn_Cancelar.UseVisualStyleBackColor = true;
+      this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
+      // 
+      // btn_Salvar
+      // 
+      this.btn_Salvar.Enabled = false;
+      this.btn_Salvar.Location = new System.Drawing.Point(161, 3);
+      this.btn_Salvar.Name = "btn_Salvar";
+      this.btn_Salvar.Size = new System.Drawing.Size(90, 23);
+      this.btn_Salvar.TabIndex = 1;
+      this.btn_Salvar.Text = "Salvar";
+      this.btn_Salvar.UseVisualStyleBackColor = true;
+      this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
+      // 
+      // btn_Novo
+      // 
+      this.btn_Novo.Location = new System.Drawing.Point(13, 3);
+      this.btn_Novo.Name = "btn_Novo";
+      this.btn_Novo.Size = new System.Drawing.Size(90, 23);
+      this.btn_Novo.TabIndex = 0;
+      this.btn_Novo.Text = "Novo";
+      this.btn_Novo.UseVisualStyleBackColor = true;
+      this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
       // 
       // ttb_Turma
       // 
@@ -171,53 +217,37 @@
       this.label5.TabIndex = 12;
       this.label5.Text = "Plano";
       // 
-      // btn_Novo
+      // ofd_Foto
       // 
-      this.btn_Novo.Location = new System.Drawing.Point(13, 3);
-      this.btn_Novo.Name = "btn_Novo";
-      this.btn_Novo.Size = new System.Drawing.Size(90, 23);
-      this.btn_Novo.TabIndex = 0;
-      this.btn_Novo.Text = "Novo";
-      this.btn_Novo.UseVisualStyleBackColor = true;
-      this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
+      this.ofd_Foto.FileName = "ofd_Foto";
       // 
-      // btn_Salvar
+      // peb_Foto
       // 
-      this.btn_Salvar.Enabled = false;
-      this.btn_Salvar.Location = new System.Drawing.Point(121, 3);
-      this.btn_Salvar.Name = "btn_Salvar";
-      this.btn_Salvar.Size = new System.Drawing.Size(90, 23);
-      this.btn_Salvar.TabIndex = 1;
-      this.btn_Salvar.Text = "Salvar";
-      this.btn_Salvar.UseVisualStyleBackColor = true;
-      this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
+      this.peb_Foto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.peb_Foto.Location = new System.Drawing.Point(463, 91);
+      this.peb_Foto.Name = "peb_Foto";
+      this.peb_Foto.Size = new System.Drawing.Size(85, 103);
+      this.peb_Foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.peb_Foto.TabIndex = 13;
+      this.peb_Foto.TabStop = false;
       // 
-      // btn_Cancelar
+      // btn_Foto
       // 
-      this.btn_Cancelar.Enabled = false;
-      this.btn_Cancelar.Location = new System.Drawing.Point(229, 3);
-      this.btn_Cancelar.Name = "btn_Cancelar";
-      this.btn_Cancelar.Size = new System.Drawing.Size(90, 23);
-      this.btn_Cancelar.TabIndex = 2;
-      this.btn_Cancelar.Text = "Cancelar";
-      this.btn_Cancelar.UseVisualStyleBackColor = true;
-      this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
-      // 
-      // btn_Fechar
-      // 
-      this.btn_Fechar.Location = new System.Drawing.Point(337, 3);
-      this.btn_Fechar.Name = "btn_Fechar";
-      this.btn_Fechar.Size = new System.Drawing.Size(90, 23);
-      this.btn_Fechar.TabIndex = 3;
-      this.btn_Fechar.Text = "Fechar";
-      this.btn_Fechar.UseVisualStyleBackColor = true;
-      this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
+      this.btn_Foto.Location = new System.Drawing.Point(463, 27);
+      this.btn_Foto.Name = "btn_Foto";
+      this.btn_Foto.Size = new System.Drawing.Size(85, 23);
+      this.btn_Foto.TabIndex = 14;
+      this.btn_Foto.Text = "Foto";
+      this.btn_Foto.UseVisualStyleBackColor = true;
+      this.btn_Foto.Click += new System.EventHandler(this.btn_Foto_Click);
       // 
       // F_NovoAluno
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(446, 245);
+      this.ClientSize = new System.Drawing.Size(567, 245);
+      this.Controls.Add(this.btn_Foto);
+      this.Controls.Add(this.peb_Foto);
       this.Controls.Add(this.label5);
       this.Controls.Add(this.label4);
       this.Controls.Add(this.btn_SelecionarPlano);
@@ -238,6 +268,7 @@
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Novo Aluno";
       this.panel1.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.peb_Foto)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -262,5 +293,8 @@
     private System.Windows.Forms.Button btn_Cancelar;
     private System.Windows.Forms.Button btn_Salvar;
     public System.Windows.Forms.TextBox ttb_Turma;
+    private System.Windows.Forms.OpenFileDialog ofd_Foto;
+    private System.Windows.Forms.PictureBox peb_Foto;
+    private System.Windows.Forms.Button btn_Foto;
   }
 }

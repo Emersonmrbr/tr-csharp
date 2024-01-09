@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Academia
 {
@@ -16,6 +17,7 @@ namespace Academia
     {
       InitializeComponent();
       InicializarComboBoxStatus();
+      ofd_Foto.Filter = "JPG(*.jpg)|*.jpg|PNG(*.png)|*.png";
     }
 
     private void InicializarComboBoxStatus()
@@ -80,6 +82,29 @@ namespace Academia
     {
       F_SelecionarTurmas f_SelecionarTurmas = new F_SelecionarTurmas(this);
       f_SelecionarTurmas.ShowDialog();
+    }
+
+    private void btn_Foto_Click(object sender, EventArgs e)
+    {
+      if (ofd_Foto.ShowDialog() == DialogResult.OK)
+      {
+        if (File.Exists(Path.Combine(Globais.caminhoFoto, ofd_Foto.SafeFileName)))
+        {
+          if (MessageBox.Show("Arquivo existe, deseja substituir", "Substituir", MessageBoxButtons.YesNo) == DialogResult.No)
+          {
+            return;
+          }
+        }
+        System.IO.File.Copy(ofd_Foto.FileName, Path.Combine(Globais.caminhoFoto, ofd_Foto.SafeFileName), true);
+        if (File.Exists(Path.Combine(Globais.caminhoFoto, ofd_Foto.SafeFileName)))
+        {
+          peb_Foto.ImageLocation = Path.Combine(Globais.caminhoFoto, ofd_Foto.FileName);
+        }
+        else
+        {
+          MessageBox.Show("Arquivo não copiado");
+        }
+      }
     }
   }
 }

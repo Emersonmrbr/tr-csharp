@@ -17,6 +17,8 @@ namespace Academia
     public static string nomeBanco { get; } = "db_academia";
     public static string pastaBanco { get; } = @"db\";
     public static string caminhoBanco { get; } = Path.Combine(caminho, pastaBanco, nomeBanco);
+    public static string pastaFoto { get; } = @"foto\";
+    public static string caminhoFoto { get; } = Path.Combine(caminho, pastaFoto);
 
     /*
     tb_usuarios
