@@ -13,7 +13,6 @@ namespace Academia
   public partial class F_GestaoAlunos : Form
   {
     private string idSelecionado { get; set; } = string.Empty;
-    private bool novoAluno { get; set; } = false;
     private string turma { get; set; } = string.Empty;
     private string turmaAtual { get; set; } = string.Empty;
     private int linha { get; set; } = 0;
@@ -31,16 +30,15 @@ namespace Academia
 
     private void CarregarAlunos()
     {
-      string selectQuery = @"
-        SELECT
-          N_IDALUNO as 'ID',
-          T_NOMEALUNO as 'Aluno'
-        FROM
-          tb_alunos
-        ORDER BY
-          T_NOMEALUNO
-      ";
-      dgv_Alunos.DataSource = Banco.DQL(selectQuery);
+      var selectQuery = new StringBuilder();
+      selectQuery.AppendLine("SELECT");
+      selectQuery.AppendLine("N_IDALUNO as 'ID',");
+      selectQuery.AppendLine("T_NOMEALUNO as 'Aluno'");
+      selectQuery.AppendLine("FROM");
+      selectQuery.AppendLine("tb_alunos");
+      selectQuery.AppendLine("ORDER BY");
+      selectQuery.AppendLine("T_NOMEALUNO");
+      dgv_Alunos.DataSource = Banco.DQL(selectQuery.ToString());
       dgv_Alunos.Columns[0].Width = 40;
       dgv_Alunos.Columns[1].Width = 120;
       ttb_Nome.Text = dgv_Alunos.Rows[dgv_Alunos.SelectedRows[0].Index].Cells[1].Value.ToString();
@@ -94,8 +92,7 @@ namespace Academia
       if (turmaAtual != turma)
       {
         string[] t = turma.Split(' ');
-        int vagas = Convert.ToInt32(t[1]);
-        if (vagas < 1)
+        if (int.TryParse(t[1], out int vagas) && vagas < 1)
         {
           MessageBox.Show("Não há vagas na turma selecionada, seleciona outra turma");
           cob_Turmas.Focus();
@@ -114,6 +111,7 @@ namespace Academia
             N_IDALUNO={4}", ttb_Nome.Text, mtb_Telefone.Text, cbb_Status.SelectedValue, cob_Turmas.SelectedValue, idSelecionado);
         Banco.DML(query);
         dgv_Alunos[1, linha].Value = ttb_Nome.Text;
+        Refresh();
       }
     }
 
